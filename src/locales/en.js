@@ -142,6 +142,7 @@ const messages=defineMessages({
   user_label_search: 'Search user',
   document: 'Document',
   collection: 'Collection',
+  value_label: 'Role Value',
 
 });
 

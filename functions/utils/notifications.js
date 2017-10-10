@@ -24,7 +24,7 @@ module.exports = {
           console.log('Error sending message:', error)
         })
       } else {
-        console.log('Not tokens registered')
+        console.log('No tokens registered')
       }
     })
   }

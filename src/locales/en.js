@@ -143,6 +143,7 @@ const messages=defineMessages({
   document: 'Document',
   collection: 'Collection',
   value_label: 'Role Value',
+  my_location: 'My Location',
 
 });
 

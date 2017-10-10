@@ -86,6 +86,7 @@ const messages=defineMessages({
   delete_message_message: 'Message will be deleted!',
   users_count_title: '{number} Users',
   user_registrationg_graph_label: 'User registrations',
+  error_required_field: 'This Field is Required',
   required: 'Required',
   facebook: 'Facebook',
   github: 'Github',

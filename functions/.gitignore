@@ -2,9 +2,3 @@
 
 # dependencies
 /node_modules
-
-# production
-/build
-
-# misc
-/.idea

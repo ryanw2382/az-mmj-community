@@ -49,13 +49,13 @@ We will just be using GitHub for our project management.
 *List each team members role to be performed during the development*
    
 #### Team Assignments:
-
+```
 | Member name     | Role                   |
 |-----------------|:----------------------:|
 | Andrew Peterson | Developer              |
 | Ryan Wilson     | Project Manager        |
 |             	  |                        |
-
+```
 ## 4. Estimates and Deadlines
 *List here rough estimates for time and code. These should provide a course outline for the required man power for the project.*
 * Links and invites to whatever project management tool you're using. (Trello, Zenkit, or whatever works for your team [alternatives](https://www.workzone.com/blog/trello-alternatives/))

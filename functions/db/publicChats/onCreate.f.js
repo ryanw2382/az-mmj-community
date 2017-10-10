@@ -52,8 +52,7 @@ exports = module.exports = functions.database.ref('/public_chats/{taskUid}').onC
         console.log("Error sending message:", error);
       });
     }else{
-      console.log("Not tokens registered:", error);
-      return;
+      console.log("No tokens registered");
     }
 
 

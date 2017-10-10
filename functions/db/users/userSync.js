@@ -78,7 +78,7 @@ module.exports = {
 
 
     return query.once('value')
-    .then((snapshot) =>{
+    .then((snapshot) => {
 
       let updates = {};
       snapshot.forEach((childSnapshot) => {

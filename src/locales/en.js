@@ -144,6 +144,11 @@ const messages=defineMessages({
   collection: 'Collection',
   value_label: 'Role Value',
   my_location: 'My Location',
+  cannabis: 'Cannabis',
+  edibles: 'Edibles',
+  extracts: 'Extracts',
+  flowers: 'Flowers',
+  dispensaries: 'Dispensaries',
 
 });
 

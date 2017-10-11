@@ -148,6 +148,7 @@ const messages=defineMessages({
   edibles: 'Edibles',
   extracts: 'Extracts',
   flowers: 'Flowers',
+  dispensaries: 'Dispensaries',
 
 });
 

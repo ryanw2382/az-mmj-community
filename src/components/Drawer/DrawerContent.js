@@ -77,7 +77,7 @@ const DrawerContent = (props, context) => {
   const menuItems=[
     {
       value:'/dashboard',
-      visible: isAuthorised,
+      visible: isGranted('administration'),
       primaryText: intl.formatMessage({id: 'dashboard'}),
       leftIcon: <FontIcon className="material-icons" >dashboard</FontIcon>
     },
@@ -100,7 +100,7 @@ const DrawerContent = (props, context) => {
           leftIcon: <FontIcon className="material-icons" >group</FontIcon>
         },
 /*        {
-          value:'/predefined_chat_messages',
+          value:'/predefined-chat-messages',
           visible: isAuthorised,
           primaryText: intl.formatMessage({id: 'predefined_messages'}),
           leftIcon: <FontIcon className="material-icons" >textsms</FontIcon>
@@ -114,8 +114,14 @@ const DrawerContent = (props, context) => {
       leftIcon: <FontIcon className="material-icons" >business</FontIcon>
     },
     {
-      value:'/tasks',
+      value:'/dispensaries',
       visible: isAuthorised,
+      primaryText: intl.formatMessage({id: 'dispensaries'}),
+      leftIcon: <FontIcon className="material-icons" >business</FontIcon>
+    },
+    {
+      value:'/tasks',
+      visible: isGranted('administration'),
       primaryText: intl.formatMessage({id: 'tasks'}),
       leftIcon: <FontIcon className="material-icons" >list</FontIcon>
     },

@@ -119,6 +119,29 @@ const DrawerContent = (props, context) => {
       primaryText: intl.formatMessage({id: 'tasks'}),
       leftIcon: <FontIcon className="material-icons" >list</FontIcon>
     },
+    {
+      visible: isAuthorised,
+      primaryTogglesNestedList: true,
+      primaryText: intl.formatMessage({id: 'cannabis'}),
+      leftIcon: <FontIcon className="material-icons">flash_on</FontIcon>,
+      nestedItems:[
+        {
+          value: '/flowers',
+          primaryText: intl.formatMessage({id: 'flowers'}),
+          leftIcon: <FontIcon className="material-icons" >flash_on</FontIcon>,
+        },
+        {
+          value: '/edibles',
+          primaryText: intl.formatMessage({id: 'edibles'}),
+          leftIcon: <FontIcon className="material-icons" >flash_on</FontIcon>,
+        },
+        {
+          value: '/extracts',
+          primaryText: intl.formatMessage({id: 'extracts'}),
+          leftIcon: <FontIcon className="material-icons" >flash_on</FontIcon>,
+        },
+      ]
+    },
 /*    {
       visible: isAuthorised,
       primaryTogglesNestedList: true,
@@ -144,7 +167,7 @@ const DrawerContent = (props, context) => {
       leftIcon: <FontIcon className="material-icons" >info_outline</FontIcon>
     },
     {
-      visible: isAuthorised, //In prod: isGranted('administration'),
+      visible: isGranted('administration'), //In prod: isGranted('administration'),
       primaryTogglesNestedList: true,
       primaryText: intl.formatMessage({id: 'administration'}),
       leftIcon: <FontIcon className="material-icons" >security</FontIcon>,

@@ -94,7 +94,7 @@ const DrawerContent = (props, context) => {
           leftIcon: <FontIcon className="material-icons" >person</FontIcon>
         },
         {
-          value:'/public_chats',
+          value:'/public-chats',
           visible: isAuthorised,
           primaryText: intl.formatMessage({id: 'public'}),
           leftIcon: <FontIcon className="material-icons" >group</FontIcon>
@@ -235,7 +235,7 @@ const DrawerContent = (props, context) => {
 
   const authItems=[
     {
-      value:'/my_account',
+      value:'/my-account',
       primaryText: intl.formatMessage({id: 'my_account'}),
       leftIcon: <FontIcon className="material-icons" >account_box</FontIcon>
     },

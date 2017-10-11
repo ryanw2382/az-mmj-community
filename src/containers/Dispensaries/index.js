@@ -1,2 +1,2 @@
 export { default as Dispensaries } from './Dispensaries';
-export { default as dispensary } from './dispensary';
+export { default as Dispensary } from './Dispensary';

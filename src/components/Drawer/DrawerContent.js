@@ -117,7 +117,7 @@ const DrawerContent = (props, context) => {
       value:'/dispensaries',
       visible: isAuthorised,
       primaryText: intl.formatMessage({id: 'dispensaries'}),
-      leftIcon: <FontIcon className="material-icons" >business</FontIcon>
+      leftIcon: <FontIcon className="material-icons" >store</FontIcon>
     },
     {
       value:'/tasks',
@@ -129,22 +129,22 @@ const DrawerContent = (props, context) => {
       visible: isAuthorised,
       primaryTogglesNestedList: true,
       primaryText: intl.formatMessage({id: 'cannabis'}),
-      leftIcon: <FontIcon className="material-icons">flash_on</FontIcon>,
+      leftIcon: <FontIcon className="material-icons">local_hospital</FontIcon>,
       nestedItems:[
         {
           value: '/flowers',
           primaryText: intl.formatMessage({id: 'flowers'}),
-          leftIcon: <FontIcon className="material-icons" >flash_on</FontIcon>,
+          leftIcon: <FontIcon className="material-icons" >local_florist</FontIcon>,
         },
         {
           value: '/edibles',
           primaryText: intl.formatMessage({id: 'edibles'}),
-          leftIcon: <FontIcon className="material-icons" >flash_on</FontIcon>,
+          leftIcon: <FontIcon className="material-icons" >cake</FontIcon>,
         },
         {
           value: '/extracts',
           primaryText: intl.formatMessage({id: 'extracts'}),
-          leftIcon: <FontIcon className="material-icons" >flash_on</FontIcon>,
+          leftIcon: <FontIcon className="material-icons" >colorize</FontIcon>,
         },
       ]
     },

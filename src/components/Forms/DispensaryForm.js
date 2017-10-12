@@ -94,43 +94,76 @@ class Form extends Component {
 
             <div>
               <Field
-                  name="full_name"
+                  name="streetAddress"
                   disabled={!initialized}
                   component={TextField}
-                  hintText={intl.formatMessage({id: 'full_name_hint'})}
-                  floatingLabelText={intl.formatMessage({id: 'full_name_label'})}
-                  ref="full_name"
+                  hintText={intl.formatMessage({id: 'Street Address'})}
+                  floatingLabelText={intl.formatMessage({id: 'Street Address'})}
+                  ref="streetAddress"
+                  withRef
+              />
+            </div>
+
+            {/*<div>*/}
+              {/*<Field*/}
+                  {/*name="vat"*/}
+                  {/*disabled={!initialized}*/}
+                  {/*component={TextField}*/}
+                  {/*hintText={intl.formatMessage({id: 'vat_hint'})}*/}
+                  {/*floatingLabelText={intl.formatMessage({id: 'vat_label'})}*/}
+                  {/*ref="vat"*/}
+                  {/*withRef*/}
+              {/*/>*/}
+            {/*/!*</div>*!/*/}
+
+
+            <div>
+              <Field
+                  name="city"
+                  disabled={!initialized}
+                  component={TextField}
+                  hintText={intl.formatMessage({id: 'City'})}
+                  floatingLabelText={intl.formatMessage({id: 'City'})}
+                  ref="city"
                   withRef
               />
             </div>
 
             <div>
               <Field
-                  name="vat"
+                  name="State"
                   disabled={!initialized}
                   component={TextField}
-                  hintText={intl.formatMessage({id: 'vat_hint'})}
-                  floatingLabelText={intl.formatMessage({id: 'vat_label'})}
-                  ref="vat"
+                  hintText={intl.formatMessage({id: 'State'})}
+                  floatingLabelText={intl.formatMessage({id: 'State'})}
+                  ref="state"
                   withRef
               />
             </div>
-
 
             <div>
               <Field
-                  name="description"
+                  name="phone"
                   disabled={!initialized}
                   component={TextField}
-                  multiLine={true}
-                  rows={2}
-                  hintText={intl.formatMessage({id: 'description_hint'})}
-                  floatingLabelText={intl.formatMessage({id: 'description_label'})}
-                  ref="description"
+                  hintText={intl.formatMessage({id: 'Phone'})}
+                  floatingLabelText={intl.formatMessage({id: 'Phone'})}
+                  ref="phone"
                   withRef
               />
             </div>
 
+            <div>
+              <Field
+                  name="website"
+                  disabled={!initialized}
+                  component={TextField}
+                  hintText={intl.formatMessage({id: 'Website'})}
+                  floatingLabelText={intl.formatMessage({id: 'Website'})}
+                  ref="website"
+                  withRef
+              />
+            </div>
             <ImageCropDialog
                 path={`dispensaries/${uid}`}
                 fileName={`photoURL`}

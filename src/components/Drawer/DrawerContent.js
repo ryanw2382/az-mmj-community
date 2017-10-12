@@ -115,7 +115,7 @@ const DrawerContent = (props, context) => {
     // },
     {
       value:'/dispensaries',
-      visible: isAuthorised,
+      visible: isGranted('administration'),
       primaryText: intl.formatMessage({id: 'dispensaries'}),
       leftIcon: <FontIcon className="material-icons" >store</FontIcon>
     },

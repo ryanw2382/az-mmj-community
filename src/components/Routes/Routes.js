@@ -45,6 +45,7 @@ const AsyncCompanies = MyLoadable({loader: () => import('../../containers/Compan
 
 const AsyncDispensary = MyLoadable({loader: () => import('../../containers/Dispensaries/Dispensary')});
 const AsyncDispensaries = MyLoadable({loader: () => import('../../containers/Dispensaries/Dispensaries')}, [AsyncDispensary]);
+const AsyncDispensaryMap = MyLoadable({loader: () => import('../../containers/Dispensaries/DispensaryMap')});
 
 const AsyncFlowers = MyLoadable({loader: () => import('../../containers/Flowers/Flowers')});
 const AsyncEdibles = MyLoadable({loader: () => import('../../containers/Edibles/Edibles')});
@@ -82,6 +83,7 @@ const Routes = (props, context) => {
       <RestrictedRoute type='private' path="/dispensaries" exact component={AsyncDispensaries} />
       <RestrictedRoute type='private' path="/dispensaries/edit/:uid" exact component={AsyncDispensary} />
       <RestrictedRoute type='private' path="/dispensaries/create" exact component={AsyncDispensary} />
+      <RestrictedRoute type='private' path="/dispensary-map" exact component={AsyncDispensaryMap} />
 
       <RestrictedRoute type='private' path="/predefined-chat-messages" exact component={AsyncPredefinedChatMessages} />
 

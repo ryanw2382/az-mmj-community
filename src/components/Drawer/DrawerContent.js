@@ -199,6 +199,12 @@ const DrawerContent = (props, context) => {
       ]
     },
     {
+      value:'/contact-us',
+      visible: isAuthorised,
+      primaryText: intl.formatMessage({id: 'contactUs'}),
+      leftIcon: <FontIcon className="material-icons" >store</FontIcon>
+    },
+    {
       divider:true,
       visible: isAuthorised,
     },

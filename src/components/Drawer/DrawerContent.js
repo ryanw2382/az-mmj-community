@@ -35,11 +35,11 @@ const DrawerContent = (props, context) => {
   const handleChange = (event, index) => {
     const {history, responsiveDrawer, setDrawerOpen} = props;
 
-    if(responsiveDrawer.open && index!==undefined){
+    if(responsiveDrawer.open && index !== undefined){
       setDrawerOpen(false);
     }
 
-    if(index!==undefined && index!==Object(index)){
+    if(index !== undefined && index !== Object(index)){
       history.push(index);
     }
   };
@@ -49,10 +49,10 @@ const DrawerContent = (props, context) => {
       value:undefined,
       visible: true,
       primaryText: intl.formatMessage({id: t.id}),
-      onClick: ()=>{updateTheme(t.id)},
+      onClick: () => {updateTheme(t.id)},
       rightIcon: <FontIcon
         className="material-icons"
-        color={t.id===theme?muiTheme.palette.primary1Color:undefined}>
+        color={t.id === theme?muiTheme.palette.primary1Color:undefined}>
         style
       </FontIcon>
     }
@@ -64,10 +64,10 @@ const DrawerContent = (props, context) => {
       value: undefined,
       visible: true,
       primaryText: intl.formatMessage({id: l.locale}) ,
-      onClick: ()=>{updateLocale(l.locale)},
+      onClick: () => {updateLocale(l.locale)},
       rightIcon: <FontIcon
         className="material-icons"
-        color={l.locale===locale?muiTheme.palette.primary1Color:undefined}>
+        color={l.locale === locale?muiTheme.palette.primary1Color:undefined}>
         language
       </FontIcon>
     }

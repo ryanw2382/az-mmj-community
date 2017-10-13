@@ -77,7 +77,7 @@ const DrawerContent = (props, context) => {
   const menuItems=[
     {
       value:'/dashboard',
-      visible: isAuthorised,
+      visible: isGranted('administration'),
       primaryText: intl.formatMessage({id: 'dashboard'}),
       leftIcon: <FontIcon className="material-icons" >dashboard</FontIcon>
     },
@@ -94,30 +94,65 @@ const DrawerContent = (props, context) => {
           leftIcon: <FontIcon className="material-icons" >person</FontIcon>
         },
         {
-          value:'/public_chats',
+          value:'/public-chats',
           visible: isAuthorised,
           primaryText: intl.formatMessage({id: 'public'}),
           leftIcon: <FontIcon className="material-icons" >group</FontIcon>
         },
 /*        {
-          value:'/predefined_chat_messages',
+          value:'/predefined-chat-messages',
           visible: isAuthorised,
           primaryText: intl.formatMessage({id: 'predefined_messages'}),
           leftIcon: <FontIcon className="material-icons" >textsms</FontIcon>
         }*/
       ]
     },
+    // {
+    //   value:'/companies',
+    //   visible: isGranted('read_companies'),
+    //   primaryText: intl.formatMessage({id: 'companies'}),
+    //   leftIcon: <FontIcon className="material-icons" >business</FontIcon>
+    // },
     {
-      value:'/companies',
-      visible: isGranted('read_companies'),
-      primaryText: intl.formatMessage({id: 'companies'}),
-      leftIcon: <FontIcon className="material-icons" >business</FontIcon>
+      value:'/dispensaries',
+      visible: isGranted('administration'),
+      primaryText: intl.formatMessage({id: 'dispensaries'}),
+      leftIcon: <FontIcon className="material-icons" >store</FontIcon>
+    },
+    {
+      value:'/dispensaries-map',
+      visible: isAuthorised,
+      primaryText: intl.formatMessage({id: 'Dispensary Map'}),
+      leftIcon: <FontIcon className="material-icons" >local_pharmacy</FontIcon>
     },
     {
       value:'/tasks',
-      visible: isAuthorised,
+      visible: isGranted('administration'),
       primaryText: intl.formatMessage({id: 'tasks'}),
       leftIcon: <FontIcon className="material-icons" >list</FontIcon>
+    },
+    {
+      visible: isAuthorised,
+      primaryTogglesNestedList: true,
+      primaryText: intl.formatMessage({id: 'cannabis'}),
+      leftIcon: <FontIcon className="material-icons">local_hospital</FontIcon>,
+      nestedItems:[
+        {
+          value: '/flowers',
+          primaryText: intl.formatMessage({id: 'flowers'}),
+          leftIcon: <FontIcon className="material-icons" >local_florist</FontIcon>,
+        },
+        {
+          value: '/edibles',
+          primaryText: intl.formatMessage({id: 'edibles'}),
+          leftIcon: <FontIcon className="material-icons" >cake</FontIcon>,
+        },
+        {
+          value: '/extracts',
+          primaryText: intl.formatMessage({id: 'extracts'}),
+          leftIcon: <FontIcon className="material-icons" >colorize</FontIcon>,
+        },
+      ]
     },
 /*    {
       visible: isAuthorised,
@@ -144,7 +179,7 @@ const DrawerContent = (props, context) => {
       leftIcon: <FontIcon className="material-icons" >info_outline</FontIcon>
     },
     {
-      visible: isAuthorised, //In prod: isGranted('administration'),
+      visible: isGranted('administration'), //In prod: isGranted('administration'),
       primaryTogglesNestedList: true,
       primaryText: intl.formatMessage({id: 'administration'}),
       leftIcon: <FontIcon className="material-icons" >security</FontIcon>,
@@ -162,6 +197,12 @@ const DrawerContent = (props, context) => {
           leftIcon: <FontIcon className="material-icons" >account_box</FontIcon>
         },*/
       ]
+    },
+    {
+      value:'/contact-us',
+      visible: isAuthorised,
+      primaryText: intl.formatMessage({id: 'contactUs'}),
+      leftIcon: <FontIcon className="material-icons" >contact_mail</FontIcon>
     },
     {
       divider:true,
@@ -212,7 +253,7 @@ const DrawerContent = (props, context) => {
 
   const authItems=[
     {
-      value:'/my_account',
+      value:'/my-account',
       primaryText: intl.formatMessage({id: 'my_account'}),
       leftIcon: <FontIcon className="material-icons" >account_box</FontIcon>
     },

@@ -17,6 +17,7 @@
     "firekit": "^0.2.14",
     "firekit-provider": "^0.2.14",
     "github-markdown-css": "^2.8.0",
+    "history": "^4.7.2",
     "intl": "^1.2.5",
     "intl-locales-supported": "^1.0.0",
     "material-ui": "^0.19.3",

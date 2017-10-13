@@ -21,8 +21,8 @@ function MyLoadable(opts, preloadComponents) {
 }
 
 const AsyncDashboard = MyLoadable({loader: () => import('../../containers/Dashboard/Dashboard')});
-const AsyncDocument = MyLoadable({loader: () => import('../../containers/Document/Document')});
-const AsyncCollection = MyLoadable({loader: () => import('../../containers/Collection/Collection')});
+// const AsyncDocument = MyLoadable({loader: () => import('../../containers/Document/Document')});
+// const AsyncCollection = MyLoadable({loader: () => import('../../containers/Collection/Collection')});
 const AsyncAbout = MyLoadable({loader: () => import('../../containers/About/About')});
 const AsyncPublicChats = MyLoadable({loader: () => import('../../containers/PublicChats/PublicChats')});
 const AsyncMyAccount = MyLoadable({loader: () => import('../../containers/MyAccount/MyAccount')});
@@ -43,6 +43,16 @@ const AsyncChats = MyLoadable({loader: () => import('../../containers/Chats/Chat
 const AsyncCompany = MyLoadable({loader: () => import('../../containers/Companies/Company')});
 const AsyncCompanies = MyLoadable({loader: () => import('../../containers/Companies/Companies')}, [AsyncCompany]);
 
+const AsyncDispensary = MyLoadable({loader: () => import('../../containers/Dispensaries/Dispensary')});
+const AsyncDispensaries = MyLoadable({loader: () => import('../../containers/Dispensaries/Dispensaries')}, [AsyncDispensary]);
+const AsyncDispensaryMap = MyLoadable({loader: () => import('../../containers/Dispensaries/DispensaryMap')});
+
+const AsyncFlowers = MyLoadable({loader: () => import('../../containers/Flowers/Flowers')});
+const AsyncEdibles = MyLoadable({loader: () => import('../../containers/Edibles/Edibles')});
+const AsyncExtracts = MyLoadable({loader: () => import('../../containers/Extracts/Extracts')});
+
+const AsyncContactUs = MyLoadable({loader: () => import('../../containers/ContactUs/ContactUs')});
+
 const AsyncUser = MyLoadable({loader: () => import('../../containers/Users/User')});
 const AsyncUsers = MyLoadable({loader: () => import('../../containers/Users/Users')}, [AsyncUser]);
 
@@ -58,7 +68,7 @@ const Routes = (props, context) => {
 
       <RestrictedRoute type='private' path="/loading" exact component={LoadingComponent} />
 
-      <RestrictedRoute type='private' path="/public_chats" exact component={AsyncPublicChats} />
+      <RestrictedRoute type='private' path="/public-chats" exact component={AsyncPublicChats} />
 
       <RestrictedRoute type='private' path="/tasks" exact component={AsyncTasks} />
       <RestrictedRoute type='private' path="/tasks/edit/:uid" exact component={AsyncTask} />
@@ -72,7 +82,12 @@ const Routes = (props, context) => {
       <RestrictedRoute type='private' path="/companies/edit/:uid" exact component={AsyncCompany} />
       <RestrictedRoute type='private' path="/companies/create" exact component={AsyncCompany} />
 
-      <RestrictedRoute type='private' path="/predefined_chat_messages" exact component={AsyncPredefinedChatMessages} />
+      <RestrictedRoute type='private' path="/dispensaries" exact component={AsyncDispensaries} />
+      <RestrictedRoute type='private' path="/dispensaries/edit/:uid" exact component={AsyncDispensary} />
+      <RestrictedRoute type='private' path="/dispensaries/create" exact component={AsyncDispensary} />
+      <RestrictedRoute type='private' path="/dispensary-map" exact component={AsyncDispensaryMap} />
+
+      <RestrictedRoute type='private' path="/predefined-chat-messages" exact component={AsyncPredefinedChatMessages} />
 
       <RestrictedRoute type='private' path="/chats" exact component={AsyncChats} />
       <RestrictedRoute type='private' path="/chats/edit/:uid" exact component={AsyncChat} />
@@ -81,10 +96,17 @@ const Routes = (props, context) => {
       <RestrictedRoute type='private' path="/users" exact component={AsyncUsers} />
       <RestrictedRoute type='private' path="/users/edit/:uid/:editType" exact component={AsyncUser} />
 
+      <RestrictedRoute type='private' path="/flowers" exact component={AsyncFlowers} />
+
+      <RestrictedRoute type='private' path="/edibles" exact component={AsyncEdibles} />
+
+      <RestrictedRoute type='private' path="/extracts" exact component={AsyncExtracts} />
+
       <RestrictedRoute type='private' path="/about" exact component={AsyncAbout}  />
-      <RestrictedRoute type='private' path="/document" exact component={AsyncDocument}  />
-      <RestrictedRoute type='private' path="/collection" exact component={AsyncCollection}  />
-      <RestrictedRoute type='private' path="/my_account"  exact component={AsyncMyAccount} />
+      <RestrictedRoute type='private' path="/contact-us" exact component={AsyncDispensaryMap} />
+{/*      <RestrictedRoute type='private' path="/document" exact component={AsyncDocument}  />
+      <RestrictedRoute type='private' path="/collection" exact component={AsyncCollection}  />*/}
+      <RestrictedRoute type='private' path="/my-account"  exact component={AsyncMyAccount} />
       <RestrictedRoute type='public' path="/signin" component={AsyncSignIn} />
       <Route component={AsyncPageNotFound} />
     </Switch>

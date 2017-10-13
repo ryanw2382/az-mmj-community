@@ -102,8 +102,10 @@ const Routes = (props, context) => {
 
       <RestrictedRoute type='private' path="/extracts" exact component={AsyncExtracts} />
 
+      <RestrictedRoute type='private' path="/contact-us" exact component={Asynccontact-us} />
+
       <RestrictedRoute type='private' path="/about" exact component={AsyncAbout}  />
-      <RestrictedRoute type='private' path="/contact-us" exact component={AsyncDispensaryMap} />
+
 {/*      <RestrictedRoute type='private' path="/document" exact component={AsyncDocument}  />
       <RestrictedRoute type='private' path="/collection" exact component={AsyncCollection}  />*/}
       <RestrictedRoute type='private' path="/my-account"  exact component={AsyncMyAccount} />

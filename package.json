@@ -9,6 +9,7 @@
     "redux-testkit": "^1.0.6"
   },
   "dependencies": {
+    "cannabis-reports": "^1.1.9",
     "chart.js": "^2.7.0",
     "firebase": "^4.5.0",
     "firebaseui": "^2.4.0",

@@ -107,16 +107,22 @@ const DrawerContent = (props, context) => {
         }*/
       ]
     },
-    {
-      value:'/companies',
-      visible: isGranted('read_companies'),
-      primaryText: intl.formatMessage({id: 'companies'}),
-      leftIcon: <FontIcon className="material-icons" >business</FontIcon>
-    },
+    // {
+    //   value:'/companies',
+    //   visible: isGranted('read_companies'),
+    //   primaryText: intl.formatMessage({id: 'companies'}),
+    //   leftIcon: <FontIcon className="material-icons" >business</FontIcon>
+    // },
     {
       value:'/dispensaries',
       visible: isAuthorised,
       primaryText: intl.formatMessage({id: 'dispensaries'}),
+      leftIcon: <FontIcon className="material-icons" >store</FontIcon>
+    },
+    {
+      value:'/dispensaries-map',
+      visible: isAuthorised,
+      primaryText: intl.formatMessage({id: 'dispensaryMap'}),
       leftIcon: <FontIcon className="material-icons" >store</FontIcon>
     },
     {

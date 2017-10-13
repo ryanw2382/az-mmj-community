@@ -105,6 +105,12 @@
     "user_registrations_per_month":{
       ".read": true,
       ".write": false
+    },
+    "dispensaries":{
+      ".read": "auth != null && root.child('admins/'+auth.uid).exists()",
+      "$uid":{
+        ".write": "auth != null && root.child('admins/'+auth.uid).exists()"
+      }
     }
   }
 }

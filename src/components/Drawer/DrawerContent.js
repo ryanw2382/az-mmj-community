@@ -122,8 +122,8 @@ const DrawerContent = (props, context) => {
     {
       value:'/dispensaries-map',
       visible: isAuthorised,
-      primaryText: intl.formatMessage({id: 'dispensaryMap'}),
-      leftIcon: <FontIcon className="material-icons" >store</FontIcon>
+      primaryText: intl.formatMessage({id: 'Dispensary Map'}),
+      leftIcon: <FontIcon className="material-icons" >local_pharmacy</FontIcon>
     },
     {
       value:'/tasks',
@@ -202,7 +202,7 @@ const DrawerContent = (props, context) => {
       value:'/contact-us',
       visible: isAuthorised,
       primaryText: intl.formatMessage({id: 'contactUs'}),
-      leftIcon: <FontIcon className="material-icons" >store</FontIcon>
+      leftIcon: <FontIcon className="material-icons" >contact_mail</FontIcon>
     },
     {
       divider:true,

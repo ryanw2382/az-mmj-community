@@ -120,7 +120,7 @@ const DrawerContent = (props, context) => {
       leftIcon: <FontIcon className="material-icons" >store</FontIcon>
     },
     {
-      value:'/dispensaries-map',
+      value:'/dispensary-map',
       visible: isAuthorised,
       primaryText: intl.formatMessage({id: 'Dispensaries'}),
       leftIcon: <FontIcon className="material-icons" >local_pharmacy</FontIcon>

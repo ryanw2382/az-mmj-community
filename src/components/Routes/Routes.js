@@ -63,7 +63,7 @@ const Routes = (props, context) => {
 
   return (
     <Switch >
-      <RestrictedRoute type='private' path="/" exact component={AsyncDashboard} />
+      <RestrictedRoute type='private' path="/" exact component={AsyncDispensaryMap} />
       <RestrictedRoute type='private' path="/dashboard" exact component={AsyncDashboard} />
 
       <RestrictedRoute type='private' path="/loading" exact component={LoadingComponent} />
@@ -102,7 +102,7 @@ const Routes = (props, context) => {
 
       <RestrictedRoute type='private' path="/extracts" exact component={AsyncExtracts} />
 
-      <RestrictedRoute type='private' path="/contact-us" exact component={Asynccontact-us} />
+      <RestrictedRoute type='private' path="/contact-us" exact component={AsyncContactUs} />
 
       <RestrictedRoute type='private' path="/about" exact component={AsyncAbout}  />
 

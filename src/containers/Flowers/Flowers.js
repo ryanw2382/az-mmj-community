@@ -4,6 +4,14 @@ import { injectIntl, intlShape } from 'react-intl';
 import { GitHubIcon } from '../../components/Icons';
 import { Activity } from '../../containers/Activity';
 import  ReactMarkdown from 'react-markdown'
+/*import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import FontIcon from 'material-ui/FontIcon';
+import firebase from 'firebase';
+import { withFirebase } from 'firekit-provider'
+import muiThemeable from 'material-ui/styles/muiThemeable';
+import { ResponsiveMenu } from 'material-ui-responsive-menu'
+import PropTypes from 'prop-types';*/
 import Scrollbar from '../../components/Scrollbar/Scrollbar'
 import README from './README.md';
 
@@ -11,7 +19,7 @@ require('github-markdown-css');
 
 class Flowers extends Component {
 
-  //Sorry for using setState here but I have to remove 'marked' from the dependencies
+/*  //Sorry for using setState here but I have to remove 'marked' from the dependencies
   //because of a vulnerability issue
   constructor(props) {
     super(props);
@@ -19,6 +27,18 @@ class Flowers extends Component {
       text: ''
     };
   }
+
+  const docRef = db.collection('flowers').doc('{ucpc}');
+
+  docRef.get().then(function(doc) {
+    if (doc.exists) {
+      console.log("Document data:", doc.data());
+    } else {
+      console.log("No such document!");
+    }
+  }).catch(function(error) {
+    console.log("Error getting document:", error);
+  });*/
 
   componentWillMount(){
 

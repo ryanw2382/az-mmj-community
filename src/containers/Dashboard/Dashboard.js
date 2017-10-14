@@ -204,10 +204,6 @@ class Dashboard extends Component {
 
           </div>
         </div>
-        <div>
-          <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1pZJYwuCYisJc_SNS9wZUbjZ4zRU" width="640" height="480"></iframe>
-        </div>
-
 
       </Activity>
     );

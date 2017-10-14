@@ -113,16 +113,11 @@ const DrawerContent = (props, context) => {
     //   primaryText: intl.formatMessage({id: 'companies'}),
     //   leftIcon: <FontIcon className="material-icons" >business</FontIcon>
     // },
-    {
-      value:'/dispensaries',
-      visible: isGranted('administration'),
-      primaryText: intl.formatMessage({id: 'Manage'}),
-      leftIcon: <FontIcon className="material-icons" >store</FontIcon>
-    },
+
     {
       value:'/dispensary-map',
       visible: isAuthorised,
-      primaryText: intl.formatMessage({id: 'Dispensaries'}),
+      primaryText: intl.formatMessage({id: 'dispensary_map'}),
       leftIcon: <FontIcon className="material-icons" >local_pharmacy</FontIcon>
     },
     {
@@ -196,12 +191,18 @@ const DrawerContent = (props, context) => {
           primaryText: intl.formatMessage({id: 'roles'}),
           leftIcon: <FontIcon className="material-icons" >account_box</FontIcon>
         },*/
+        {
+          value:'/dispensaries',
+          visible: isGranted('administration'),
+          primaryText: intl.formatMessage({id: 'dispensaries'}),
+          leftIcon: <FontIcon className="material-icons" >store</FontIcon>
+        },
       ]
     },
     {
       value:'/contact-us',
       visible: isAuthorised,
-      primaryText: intl.formatMessage({id: 'Contact Us'}),
+      primaryText: intl.formatMessage({id: 'contact_us'}),
       leftIcon: <FontIcon className="material-icons" >contact_mail</FontIcon>
     },
     {

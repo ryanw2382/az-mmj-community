@@ -29,8 +29,8 @@ class Dispensary extends Component {
     const errors = {}
 
     errors.name = !values.name?intl.formatMessage({id: 'error_required_field'}):'';
-    errors.full_name = !values.full_name?intl.formatMessage({id: 'error_required_field'}):'';
-    errors.vat = !values.vat?intl.formatMessage({id: 'error_required_field'}):'';
+    errors.state = !values.state?intl.formatMessage({id: 'error_required_field'}):'';
+    errors.city = !values.city?intl.formatMessage({id: 'error_required_field'}):'';
 
     return errors
   }

@@ -205,8 +205,6 @@ class Dashboard extends Component {
           </div>
         </div>
 
-
-
       </Activity>
     );
   }

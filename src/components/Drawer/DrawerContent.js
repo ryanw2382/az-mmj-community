@@ -35,11 +35,11 @@ const DrawerContent = (props, context) => {
   const handleChange = (event, index) => {
     const {history, responsiveDrawer, setDrawerOpen} = props;
 
-    if(responsiveDrawer.open && index!==undefined){
+    if(responsiveDrawer.open && index !== undefined){
       setDrawerOpen(false);
     }
 
-    if(index!==undefined && index!==Object(index)){
+    if(index !== undefined && index !== Object(index)){
       history.push(index);
     }
   };
@@ -49,10 +49,10 @@ const DrawerContent = (props, context) => {
       value:undefined,
       visible: true,
       primaryText: intl.formatMessage({id: t.id}),
-      onClick: ()=>{updateTheme(t.id)},
+      onClick: () => {updateTheme(t.id)},
       rightIcon: <FontIcon
         className="material-icons"
-        color={t.id===theme?muiTheme.palette.primary1Color:undefined}>
+        color={t.id === theme?muiTheme.palette.primary1Color:undefined}>
         style
       </FontIcon>
     }
@@ -64,10 +64,10 @@ const DrawerContent = (props, context) => {
       value: undefined,
       visible: true,
       primaryText: intl.formatMessage({id: l.locale}) ,
-      onClick: ()=>{updateLocale(l.locale)},
+      onClick: () => {updateLocale(l.locale)},
       rightIcon: <FontIcon
         className="material-icons"
-        color={l.locale===locale?muiTheme.palette.primary1Color:undefined}>
+        color={l.locale === locale?muiTheme.palette.primary1Color:undefined}>
         language
       </FontIcon>
     }
@@ -116,13 +116,13 @@ const DrawerContent = (props, context) => {
     {
       value:'/dispensaries',
       visible: isGranted('administration'),
-      primaryText: intl.formatMessage({id: 'dispensaries'}),
+      primaryText: intl.formatMessage({id: 'Manage'}),
       leftIcon: <FontIcon className="material-icons" >store</FontIcon>
     },
     {
-      value:'/dispensaries-map',
+      value:'/dispensary-map',
       visible: isAuthorised,
-      primaryText: intl.formatMessage({id: 'Dispensary Map'}),
+      primaryText: intl.formatMessage({id: 'Dispensaries'}),
       leftIcon: <FontIcon className="material-icons" >local_pharmacy</FontIcon>
     },
     {
@@ -201,7 +201,7 @@ const DrawerContent = (props, context) => {
     {
       value:'/contact-us',
       visible: isAuthorised,
-      primaryText: intl.formatMessage({id: 'contactUs'}),
+      primaryText: intl.formatMessage({id: 'Contact Us'}),
       leftIcon: <FontIcon className="material-icons" >contact_mail</FontIcon>
     },
     {

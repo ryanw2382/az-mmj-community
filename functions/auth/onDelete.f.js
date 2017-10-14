@@ -18,7 +18,7 @@ exports = module.exports = functions.auth.user().onDelete( event => {
   }
 
   mailOptions.subject = `Bye!`
-  mailOptions.text = `Hey ${displayName}!, We confirm that we have deleted your AZ MMJ Community App account.`
+  mailOptions.text = `Hey ${displayName}! We confirm that we have deleted your AZ MMJ Community App account.`
 
   const sendEmail = mailTransport.sendMail(mailOptions).then(() => {
     console.log('Account deletion confirmation email sent to:', email)

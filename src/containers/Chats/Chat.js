@@ -19,40 +19,40 @@ class Chat extends Component {
     watchList(chatsPath)
   }
 
-render(){
-  const {messages, muiTheme, history, receiverDisplayName, receiverPhotoURL, uid} =this.props;
+  render(){
+    const {messages, muiTheme, history, receiverDisplayName, receiverPhotoURL, uid} =this.props;
 
-  return (
-    <Activity
-      isLoading={messages===undefined}
-      containerStyle={{
-        overflow:'hidden',
-        backgroundColor: muiTheme.chip.backgroundColor
-      }}
-      onBackClick={()=>{history.push('/chats')}}
-      pageTitle={receiverDisplayName}
-      title={<div style={{display: 'flex', flexOrientation: 'row', flexWrap: 'wrap', alignItems:'center' }}>
-        <Avatar
-          src={receiverPhotoURL}
-          alt="person"
-          icon={
-            <FontIcon
-              className="material-icons">
-              person
-            </FontIcon>
-          }
-        />
-        <div style={{paddingLeft: 8}}>
-          {`${receiverDisplayName}`}
-        </div>
-      </div>}>
+    return (
+      <Activity
+        isLoading={messages===undefined}
+        containerStyle={{
+          overflow:'hidden',
+          backgroundColor: muiTheme.chip.backgroundColor
+        }}
+        onBackClick={()=>{history.push('/chats')}}
+        pageTitle={receiverDisplayName}
+        title={<div style={{display: 'flex', flexOrientation: 'row', flexWrap: 'wrap', alignItems:'center' }}>
+          <Avatar
+            src={receiverPhotoURL}
+            alt="person"
+            icon={
+              <FontIcon
+                className="material-icons">
+                person
+              </FontIcon>
+            }
+          />
+          <div style={{paddingLeft: 8}}>
+            {`${receiverDisplayName}`}
+          </div>
+        </div>}>
 
-      <ChatMessages uid={uid}/>
+        <ChatMessages uid={uid}/>
 
-  </Activity>
-);
+      </Activity>
+    );
 
-}
+  }
 
 }
 

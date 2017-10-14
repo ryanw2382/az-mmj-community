@@ -155,6 +155,10 @@ const messages=defineMessages({
   dispensaries: 'Dispensaries',
   contactUs: 'Contact Us',
   'Dispensary Map': 'Dispensary Map',
+  Manage: 'Manage',
+  Dispensaries: 'Dispensaries',
+  'Contact Us': 'Contact Us',
+
 
 });
 

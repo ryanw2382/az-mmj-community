@@ -29,7 +29,7 @@ exports = module.exports = functions.auth.user().onCreate( event => {
       from: '"Ryan Wilson" <ryanw2382@gmail.com>',
       to: email,
       subject: `Welcome to the AZ MMJ Community App!`,
-      text: `Hey ${displayName}!, Welcome to the AZ MMJ Community App. I hope you will enjoy what we put together for you.`
+      text: `Hey ${displayName}! Welcome to the AZ MMJ Community App. I hope you will enjoy what we put together for you.`
     }
 
     promises.push(mailTransport.sendMail(mailOptions))

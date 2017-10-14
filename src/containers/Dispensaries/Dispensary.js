@@ -147,7 +147,6 @@ class Dispensary extends Component {
               onRequestClose={this.handleClose}>
             {intl.formatMessage({id: 'delete_dispensary_message'})}
           </Dialog>
-
         </Activity>
     );
   }

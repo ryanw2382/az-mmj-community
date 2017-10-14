@@ -47,7 +47,7 @@ class Dispensaries extends Component {
             }
             key={index}
             primaryText={dispensary.val.name}
-            secondaryText={dispensary.val.full_name}
+            secondaryText={dispensary.val.city}
             onClick={()=>{history.push(`/dispensaries/edit/${dispensary.key}`)}}
             id={index}
         />

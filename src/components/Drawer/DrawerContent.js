@@ -116,13 +116,13 @@ const DrawerContent = (props, context) => {
     {
       value:'/dispensaries',
       visible: isGranted('administration'),
-      primaryText: intl.formatMessage({id: 'dispensaries'}),
+      primaryText: intl.formatMessage({id: 'Manage'}),
       leftIcon: <FontIcon className="material-icons" >store</FontIcon>
     },
     {
-      value:'/dispensaries-map',
+      value:'/dispensary-map',
       visible: isAuthorised,
-      primaryText: intl.formatMessage({id: 'Dispensary Map'}),
+      primaryText: intl.formatMessage({id: 'Dispensaries'}),
       leftIcon: <FontIcon className="material-icons" >local_pharmacy</FontIcon>
     },
     {
@@ -201,7 +201,7 @@ const DrawerContent = (props, context) => {
     {
       value:'/contact-us',
       visible: isAuthorised,
-      primaryText: intl.formatMessage({id: 'contactUs'}),
+      primaryText: intl.formatMessage({id: 'Contact Us'}),
       leftIcon: <FontIcon className="material-icons" >contact_mail</FontIcon>
     },
     {

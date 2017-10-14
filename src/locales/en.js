@@ -153,6 +153,8 @@ const messages=defineMessages({
   extracts: 'Extracts',
   flowers: 'Flowers',
   dispensaries: 'Dispensaries',
+  contactUs: 'Contact Us',
+  'Dispensary Map': 'Dispensary Map',
 
 });
 

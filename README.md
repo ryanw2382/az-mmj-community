@@ -42,8 +42,8 @@ add in locals
 
 #### Members: 
 *List the team members*
-Andrew Peterson
-Ryan Wilson
+* Andrew Peterson
+* Ryan Wilson
 
 #### Roles:
 *List each team members role to be performed during the development*

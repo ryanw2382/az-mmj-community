@@ -1350,6 +1350,12 @@ caniuse-lite@^1.0.30000697, caniuse-lite@^1.0.30000744:
   version "1.0.30000745"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000745.tgz#20d6fede1157a4935133502946fc7e0e6b880da5"
 
+cannabis-reports@^1.1.9:
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/cannabis-reports/-/cannabis-reports-1.1.9.tgz#8031f7b0e8c7d2032b94e5fde9aae222cb0c269a"
+  dependencies:
+    babel-runtime "^6.23.0"
+
 capture-stack-trace@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/capture-stack-trace/-/capture-stack-trace-1.0.0.tgz#4a6fa07399c26bba47f0b2496b4d0fb408c5550d"

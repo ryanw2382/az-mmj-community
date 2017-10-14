@@ -97,8 +97,8 @@ class Form extends Component {
                   name="streetAddress"
                   disabled={!initialized}
                   component={TextField}
-                  hintText={intl.formatMessage({id: 'Street Address'})}
-                  floatingLabelText={intl.formatMessage({id: 'Street Address'})}
+                  hintText={intl.formatMessage({id: 'street_address'})}
+                  floatingLabelText={intl.formatMessage({id: 'street_address'})}
                   ref="streetAddress"
                   withRef
               />
@@ -122,8 +122,8 @@ class Form extends Component {
                   name="city"
                   disabled={!initialized}
                   component={TextField}
-                  hintText={intl.formatMessage({id: 'City'})}
-                  floatingLabelText={intl.formatMessage({id: 'City'})}
+                  hintText={intl.formatMessage({id: 'city'})}
+                  floatingLabelText={intl.formatMessage({id: 'city'})}
                   ref="city"
                   withRef
               />
@@ -131,11 +131,11 @@ class Form extends Component {
 
             <div>
               <Field
-                  name="State"
+                  name="state"
                   disabled={!initialized}
                   component={TextField}
-                  hintText={intl.formatMessage({id: 'State'})}
-                  floatingLabelText={intl.formatMessage({id: 'State'})}
+                  hintText={intl.formatMessage({id: 'state'})}
+                  floatingLabelText={intl.formatMessage({id: 'state'})}
                   ref="state"
                   withRef
               />
@@ -146,8 +146,8 @@ class Form extends Component {
                   name="phone"
                   disabled={!initialized}
                   component={TextField}
-                  hintText={intl.formatMessage({id: 'Phone'})}
-                  floatingLabelText={intl.formatMessage({id: 'Phone'})}
+                  hintText={intl.formatMessage({id: 'phone'})}
+                  floatingLabelText={intl.formatMessage({id: 'phone'})}
                   ref="phone"
                   withRef
               />
@@ -158,8 +158,8 @@ class Form extends Component {
                   name="website"
                   disabled={!initialized}
                   component={TextField}
-                  hintText={intl.formatMessage({id: 'Website'})}
-                  floatingLabelText={intl.formatMessage({id: 'Website'})}
+                  hintText={intl.formatMessage({id: 'website'})}
+                  floatingLabelText={intl.formatMessage({id: 'website'})}
                   ref="website"
                   withRef
               />

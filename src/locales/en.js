@@ -157,6 +157,11 @@ const messages=defineMessages({
   dispensary_map: 'Dispensaries',
   Manage: 'Manage',
   contact_us: 'Contact Us',
+  city: 'City',
+  street_address: 'Street Address',
+  state: 'State',
+  website: 'Website',
+
 
 
 });

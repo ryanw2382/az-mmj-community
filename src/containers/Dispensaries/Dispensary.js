@@ -38,13 +38,13 @@ class Dispensary extends Component {
   handleUpdateValues = (values) => {
 
     return {
-      updated: firebase.database.ServerValue.TIMESTAMP ,
+      updated: firebase.database.ServerValue.TIMESTAMP,
       ...values
     }
   }
 
   handleClose = () => {
-    const { setDialogIsOpen }=this.props;
+    const { setDialogIsOpen } = this.props;
 
     setDialogIsOpen('delete_dispensary', false);
 

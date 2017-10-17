@@ -44,6 +44,7 @@ html, body, #root{
 .google-maps {
   position: relative;
   padding-bottom: 52%;
+  padding-top: 30px;
   height: 0;
   overflow: hidden;
 }
@@ -51,6 +52,9 @@ html, body, #root{
   position: absolute;
   top: 0;
   left: 0;
+  bottom: 0;
+  right: 0;
   width: 100% !important;
   height: 100% !important;
+  border: none;
 }

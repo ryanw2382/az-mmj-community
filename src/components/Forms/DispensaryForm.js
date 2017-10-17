@@ -131,7 +131,7 @@ class Form extends Component {
 
             <div>
               <Field
-                  name="state"
+                  name="homeState"
                   disabled={!initialized}
                   component={TextField}
                   hintText={intl.formatMessage({id: 'state'})}

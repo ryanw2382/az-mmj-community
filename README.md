@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/ryanw2382/az-mmj-community.svg?branch=master)](https://travis-ci.org/ryanw2382/az-mmj-community)
+
+[![codecov](https://codecov.io/gh/ryanw2382/az-mmj-community/branch/master/graph/badge.svg)](https://codecov.io/gh/ryanw2382/az-mmj-community)
+
 
 # Project Plan
 

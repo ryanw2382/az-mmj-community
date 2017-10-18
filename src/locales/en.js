@@ -1,7 +1,7 @@
 import {defineMessages} from 'react-intl';
 
 const messages=defineMessages({
-  app_name: 'AZ MMJ Community',
+  app_name: 'Arizona Cannabis Community',
   dashboard: 'Dashboard',
   about: 'About',
   page_not_found_demo: 'Page not found demo',
@@ -15,6 +15,7 @@ const messages=defineMessages({
   en: 'English',
   de: 'German',
   bs: 'Bosnian',
+  ru: 'Russian',
   dark: 'Dark',
   light: 'Light',
   ics: 'ICS',

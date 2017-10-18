@@ -22,7 +22,7 @@ const DrawerContent = (props, context) => {
     setDialogIsOpen,
     messaging,
     isGranted
-  }=props;
+  } = props;
 
   const isAuthorised = auth.isAuthorised;
 

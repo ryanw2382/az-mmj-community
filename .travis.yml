@@ -8,7 +8,7 @@ cache:
   - functions/node_modules
 
 before_install:
-  - npm install codecov.io coveralls lighthouse-ci
+  - npm install codecov.io coveralls
   - chmod +x before_install.sh
   - ./before_install.sh
 
@@ -22,7 +22,6 @@ after_success:
   - travis_wait 40 ./build.sh
   - chmod +x deploy.sh
   - travis_wait 40 ./deploy.sh
-  - node node_modules/lighthouse-ci/runlighthouse.js https://az-mmj-community.firebaseapp.com
 
 deploy:
   provider: firebase

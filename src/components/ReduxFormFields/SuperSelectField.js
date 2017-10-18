@@ -3,12 +3,12 @@ import { Component, createElement } from 'react'
 import { mapError } from '../../utils/mapError'
 
 /**
-* Creates a component class that renders the given Material UI component
-*
-* @param MaterialUIComponent The material ui component to render
-* @param mapProps A mapping of props provided by redux-form to the props the Material UI
-* component needs
-*/
+ * Creates a component class that renders the given Material UI component
+ *
+ * @param MaterialUIComponent The material ui component to render
+ * @param mapProps A mapping of props provided by redux-form to the props the Material UI
+ * component needs
+ */
 function createComponent(MaterialUIComponent, mapProps) {
   class InputComponent extends Component {
     getRenderedComponent() {

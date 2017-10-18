@@ -2,19 +2,14 @@ import React from 'react';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 import {SelectableMenuList} from 'material-ui-selectable-menu-list';
 import FontIcon from 'material-ui/FontIcon';
-// import Toggle from 'material-ui/Toggle';
 import allThemes from '../../themes';
 import allLocales from '../../locales';
-import firebase from 'firebase';
 import { injectIntl } from 'react-intl';
 import { withRouter } from 'react-router-dom';
-import { withFirebase } from 'firekit-provider'
 
 const DrawerContent = (props, context) => {
 
   const {
-/*    responsiveDrawer,
-    setResponsive,*/
     theme,
     locale,
     updateTheme,
@@ -24,11 +19,10 @@ const DrawerContent = (props, context) => {
     auth,
     dialogs,
     match,
-    firebaseApp,
     setDialogIsOpen,
     messaging,
     isGranted
-  }=props;
+  } = props;
 
   const isAuthorised = auth.isAuthorised;
 
@@ -46,13 +40,13 @@ const DrawerContent = (props, context) => {
 
   const themeItems = allThemes.map((t)=>{
     return {
-      value:undefined,
+      value: undefined,
       visible: true,
       primaryText: intl.formatMessage({id: t.id}),
       onClick: () => {updateTheme(t.id)},
       rightIcon: <FontIcon
         className="material-icons"
-        color={t.id === theme?muiTheme.palette.primary1Color:undefined}>
+        color={t.id === theme ? muiTheme.palette.primary1Color:undefined}>
         style
       </FontIcon>
     }
@@ -99,21 +93,14 @@ const DrawerContent = (props, context) => {
           primaryText: intl.formatMessage({id: 'public'}),
           leftIcon: <FontIcon className="material-icons" >group</FontIcon>
         },
-/*        {
+        {
           value:'/predefined-chat-messages',
-          visible: isAuthorised,
+          visible: isGranted('administration'),
           primaryText: intl.formatMessage({id: 'predefined_messages'}),
           leftIcon: <FontIcon className="material-icons" >textsms</FontIcon>
-        }*/
+        }
       ]
     },
-    // {
-    //   value:'/companies',
-    //   visible: isGranted('read_companies'),
-    //   primaryText: intl.formatMessage({id: 'companies'}),
-    //   leftIcon: <FontIcon className="material-icons" >business</FontIcon>
-    // },
-
     {
       value:'/dispensary-map',
       visible: isAuthorised,
@@ -149,24 +136,6 @@ const DrawerContent = (props, context) => {
         },
       ]
     },
-/*    {
-      visible: isAuthorised,
-      primaryTogglesNestedList: true,
-      primaryText: intl.formatMessage({id: 'firestore'}),
-      leftIcon: <FontIcon className="material-icons" >flash_on</FontIcon>,
-      nestedItems:[
-        {
-          value: '/document',
-          primaryText: intl.formatMessage({id: 'document'}),
-          leftIcon: <FontIcon className="material-icons" >flash_on</FontIcon>,
-        },
-        {
-          value: '/collection',
-          primaryText: intl.formatMessage({id: 'collection'}),
-          leftIcon: <FontIcon className="material-icons" >flash_on</FontIcon>,
-        }
-      ]
-    },*/
     {
       value:'/about',
       visible: isAuthorised,
@@ -174,23 +143,23 @@ const DrawerContent = (props, context) => {
       leftIcon: <FontIcon className="material-icons" >info_outline</FontIcon>
     },
     {
-      visible: isGranted('administration'), //In prod: isGranted('administration'),
+      visible: isGranted('administration'),
       primaryTogglesNestedList: true,
       primaryText: intl.formatMessage({id: 'administration'}),
       leftIcon: <FontIcon className="material-icons" >security</FontIcon>,
       nestedItems:[
         {
           value:'/users',
-          visible: isAuthorised, //In prod: isGranted('read_users'),
+          visible: isGranted('administration'),
           primaryText: intl.formatMessage({id: 'users'}),
           leftIcon: <FontIcon className="material-icons" >group</FontIcon>
         },
-/*        {
+        {
           value:'/roles',
-          visible: isGranted('read_roles'),
+          visible: isGranted('administration'),
           primaryText: intl.formatMessage({id: 'roles'}),
           leftIcon: <FontIcon className="material-icons" >account_box</FontIcon>
-        },*/
+        },
         {
           value:'/dispensaries',
           visible: isGranted('administration'),
@@ -228,28 +197,21 @@ const DrawerContent = (props, context) => {
           leftIcon: <FontIcon className="material-icons" >language</FontIcon>,
           nestedItems: localeItems,
         },
-/*        {
-          primaryText: intl.formatMessage({id: 'responsive'}),
-          leftIcon: <FontIcon className="material-icons" >chrome_reader_mode</FontIcon>,
-          rightToggle: <Toggle
-            toggled={responsiveDrawer.responsive}
-            onToggle={
-              () => {setResponsive(!responsiveDrawer.responsive)}
-            }
-          />,
-        },*/
       ]
     },
   ];
 
   const handleSignOut = () =>{
 
-    firebaseApp.database().ref(`users/${firebaseApp.auth().currentUser.uid}/connections`).remove();
-    firebaseApp.database().ref(`users/${firebaseApp.auth().currentUser.uid}/notificationTokens/${messaging.token}`).remove();
-    firebaseApp.database().ref(`users/${firebaseApp.auth().currentUser.uid}/lastOnline`).set(firebase.database.ServerValue.TIMESTAMP);
-    firebaseApp.auth().signOut().then(()=>{
-      setDialogIsOpen('auth_menu', false);
-    });
+    import('../../firebase').then(({firebaseApp}) => {
+      this.firebaseApp = firebaseApp
+
+      firebaseApp.database().ref(`users/${firebaseApp.auth().currentUser.uid}/connections`).remove();
+      firebaseApp.database().ref(`users/${firebaseApp.auth().currentUser.uid}/notificationTokens/${messaging.token}`).remove();
+      firebaseApp.database().ref(`users/${firebaseApp.auth().currentUser.uid}/lastOnline`).set(new Date());
+      firebaseApp.auth().signOut().then(()=>{setDialogIsOpen('auth_menu', false);});
+    })
+
   };
 
   const authItems=[
@@ -284,4 +246,4 @@ const DrawerContent = (props, context) => {
 );
 }
 
-export default injectIntl(muiThemeable()(withRouter(withFirebase(DrawerContent))));
+export default injectIntl(muiThemeable()(withRouter(DrawerContent)))

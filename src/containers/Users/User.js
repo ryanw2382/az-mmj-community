@@ -35,7 +35,7 @@ class User extends Component {
 
   handleAdminChange = (e, isInputChecked) => {
     const { firebaseApp, match } = this.props
-    const uid = match.params.uid
+    const uid=match.params.uid
 
     if(isInputChecked){
       firebaseApp.database().ref(`/admins/${uid}`).set(true)

@@ -76,7 +76,7 @@ class Role extends Component {
 
   renderGrantItem = (i, k) => {
     const { role_grants, match, intl} =this.props;
-    // TODO: check to see if the key needs to be in brackets
+
     const uid=match.params.uid;
     const key=i;
     const val=grants[i];
@@ -127,7 +127,8 @@ class Role extends Component {
       setDialogIsOpen,
       submit,
       muiTheme,
-      match
+      match,
+      firebaseApp
     }=this.props;
 
     const uid=match.params.uid;
@@ -177,45 +178,46 @@ class Role extends Component {
         onBackClick={()=>{history.goBack()}}
         title={intl.formatMessage({
           id: this.props.match.params.uid?'edit_role':'create_role'})}>
-          <div style={{margin: 15, display: 'flex'}}>
-            <FireForm
-              name={form_name}
-              path={`${path}/`}
-              validate={this.validate}
-              onSubmitSuccess={(values)=>{history.push(`${path}`);}}
-              onDelete={(values)=>{history.push(`${path}`);}}
-              uid={this.props.match.params.uid}>
-              <RoleForm
-                renderGrantItem={this.renderGrantItem}
-                {...this.props}
-              />
-            </FireForm>
-          </div>
-          <Dialog
-            title={intl.formatMessage({id: 'delete_role_title'})}
-            actions={actions}
-            modal={false}
-            open={dialogs.delete_role===true}
-            onRequestClose={this.handleClose}>
-            {intl.formatMessage({id: 'delete_role_message'})}
-          </Dialog>
-        </Activity>
-      );
-    }
+        <div style={{margin: 15, display: 'flex'}}>
+          <FireForm
+            firebaseApp={firebaseApp}
+            name={form_name}
+            path={`${path}/`}
+            validate={this.validate}
+            onSubmitSuccess={(values)=>{history.push(`${path}`);}}
+            onDelete={(values)=>{history.push(`${path}`);}}
+            uid={this.props.match.params.uid}>
+            <RoleForm
+              renderGrantItem={this.renderGrantItem}
+              {...this.props}
+            />
+          </FireForm>
+        </div>
+        <Dialog
+          title={intl.formatMessage({id: 'delete_role_title'})}
+          actions={actions}
+          modal={false}
+          open={dialogs.delete_role===true}
+          onRequestClose={this.handleClose}>
+          {intl.formatMessage({id: 'delete_role_message'})}
+        </Dialog>
+      </Activity>
+    );
   }
+}
 
 
-  const mapStateToProps = (state) => {
-    const { auth, intl, dialogs, lists } = state;
+const mapStateToProps = (state) => {
+  const { auth, intl, dialogs, lists } = state;
 
-    return {
-      auth,
-      intl,
-      dialogs,
-      role_grants: lists.role_grants
-    };
+  return {
+    auth,
+    intl,
+    dialogs,
+    role_grants: lists.role_grants
   };
+};
 
-  export default connect(
-    mapStateToProps, {setDialogIsOpen, change, submit}
-  )(injectIntl(withRouter(withFirebase(muiThemeable()(Role)))));
+export default connect(
+  mapStateToProps, {setDialogIsOpen, change, submit}
+)(injectIntl(withRouter(withFirebase(muiThemeable()(Role)))));

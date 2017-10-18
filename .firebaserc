@@ -1,5 +1,7 @@
 {
   "projects": {
+    "default": "az-mmj-community"
     "dev": "az-mmj-community"
+    "prod": "az-mmj-community"
   }
 }

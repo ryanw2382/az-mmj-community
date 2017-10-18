@@ -4,11 +4,14 @@
   "dependencies": {
     "camelcase": "^4.1.0",
     "cannabis-reports": "^1.1.9",
-    "firebase-admin": "^5.4.1",
+    "firebase-admin": "^5.4.2",
     "firebase-functions": "^0.7.1",
     "glob": "^7.1.2",
-    "nodemailer": "^4.1.3",
+    "nodemailer": "^4.2.0"
     "request-promise": "^4.2.2"
   },
-  "private": true
+  "private": true,
+  "scripts": {
+    "check": "npm-check -s -u"
+  }
 }

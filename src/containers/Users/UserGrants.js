@@ -22,7 +22,7 @@ class UserGrants extends Component {
     this.props.watchList('user_grants');
   }
 
-  handleGrantToggleChange = (e, isInputChecked, key) => {
+  hanldeGrantToggleChange = (e, isInputChecked, key) => {
     const { firebaseApp, match } = this.props;
     const uid=match.params.uid;
 
@@ -34,12 +34,12 @@ class UserGrants extends Component {
 
   }
 
-  renderGrantItem = (list, i, k) => {
+  renderGrantItem = (list, i) => {
     const { user_grants, match, intl } = this.props
 
     const uid = match.params.uid
     const key = list[i].key
-    const val = grants[list[k].key]
+    const val = grants[list[i].key]
     let userGrants = []
 
     if(user_grants !== undefined) {
@@ -65,7 +65,7 @@ class UserGrants extends Component {
         rightToggle={
           <Toggle
             toggled={userGrants[val]===true}
-            onToggle={(e, isInputChecked)=>{this.handleGrantToggleChange(e, isInputChecked, val)}}
+            onToggle={(e, isInputChecked)=>{this.hanldeGrantToggleChange(e, isInputChecked, val)}}
           />
         }
         key={key}
@@ -100,18 +100,18 @@ class UserGrants extends Component {
 
     return (
       <div style={{height: '100%'}}>
-          <List style={{height: '100%'}} ref={(field) => { this.list = field; }}>
-            <ReactList
-              itemRenderer={(i, k) => this.renderGrantItem(list, i, k)}
-              length={list?list.length:0}
-              type='simple'
-            />
-          </List>
-          <FilterDrawer
-            name={'user_grants'}
-            fields={filterFields}
-            formatMessage={intl.formatMessage}
+        <List style={{height: '100%'}} ref={(field) => { this.list = field; }}>
+          <ReactList
+            itemRenderer={(i, k) => this.renderGrantItem(list, i, k)}
+            length={list?list.length:0}
+            type='simple'
           />
+        </List>
+        <FilterDrawer
+          name={'user_grants'}
+          fields={filterFields}
+          formatMessage={intl.formatMessage}
+        />
       </div>
     );
   }

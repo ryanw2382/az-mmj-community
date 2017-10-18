@@ -17,7 +17,7 @@ exports = module.exports = functions.database.ref('/role_grants/{roleUid}/{grant
       const userUid = userRoles.key
       const roles = userRoles.val()
 
-      Object.keys(roles).forEach((key, index) => {
+      Object.keys(roles).forEach((key) => {
         if (key === roleUid) {
           let grantRef = false
 

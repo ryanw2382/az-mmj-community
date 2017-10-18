@@ -46,13 +46,13 @@ const DrawerHeader = ({muiTheme, intl, auth, setAuthMenuOpen, fetchUser, dialogs
             primaryText={auth.displayName}
             secondaryText={auth.email}
             rightIconButton={
-              <IconButton onClick={() => { setDialogIsOpen('auth_menu', dialogs.auth_menu ? false : true) }}>
+              <IconButton onClick={() => { setDialogIsOpen('auth_menu', !dialogs.auth_menu) }}>
                 <FontIcon className='material-icons' >{dialogs.auth_menu ? 'arrow_drop_up' : 'arrow_drop_down'}</FontIcon>
               </IconButton>
             }
             disableFocusRipple
             style={{ backgroundColor: 'transparent' }}
-            onClick={() => { setDialogIsOpen('auth_menu', dialogs.auth_menu ? false : true) }}
+            onClick={() => { setDialogIsOpen('auth_menu', !dialogs.auth_menu) }}
           />
         </List>
       </div>

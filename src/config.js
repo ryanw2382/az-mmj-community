@@ -21,6 +21,7 @@ const config= {
     'twitter.com',
     'github.com',
     'password',
+    'phone'
   ],
   initial_state: {
     theme: 'dark',
@@ -29,4 +30,4 @@ const config= {
   drawer_width: 256
 }
 
-export default config;
+export default config

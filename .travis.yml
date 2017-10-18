@@ -22,4 +22,8 @@ after_success:
   - travis_wait 40 ./build.sh
   - chmod +x deploy.sh
   - travis_wait 40 ./deploy.sh
-  - node node_modules/lighthouse-ci/runlighthouse.js https://az-mmj-community.firebaseapp.com
+
+deploy:
+  provider: firebase
+  token:
+    secure: 1/ksPiebLqAGAqvXbLZVQ2srosTFYpPVFpBO6uhcSZeRM

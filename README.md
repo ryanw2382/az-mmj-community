@@ -1,3 +1,7 @@
+
+[![codecov](https://codecov.io/gh/ryanw2382/az-mmj-community/branch/master/graph/badge.svg)](https://codecov.io/gh/ryanw2382/az-mmj-community)
+
+
 # Project Plan
 
 

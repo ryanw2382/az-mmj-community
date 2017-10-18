@@ -17,7 +17,7 @@ export default function configureStore () {
     try {
       const key = Object.keys(localStorage).find(e => e.match(/firebase:authUser/))
       const data = JSON.parse(localStorage.getItem(key))
-      return data != null
+      return data !== null
     } catch (ex) {
       return false
     }

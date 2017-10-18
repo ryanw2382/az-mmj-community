@@ -20,17 +20,17 @@ exports = module.exports = functions.database.ref('/user_chat_messages/{senderUi
 
   console.log(`Message ${messageUid} ${snapValues.message} created! Sender ${senderUid}, receiver ${receiverUid}`)
 
-  let lastMessage = snapValues.message
+  let lastMessage=snapValues.message
 
   if(!lastMessage){
     if(snapValues.link){
-      lastMessage = 'Link'
+      lastMessage='Link'
     }
     if(snapValues.image){
-      lastMessage = 'Image'
+      lastMessage='Image'
     }
     if(snapValues.location){
-      lastMessage = 'Position'
+      lastMessage='Position'
     }
   }
 
@@ -51,6 +51,7 @@ exports = module.exports = functions.database.ref('/user_chat_messages/{senderUi
   })
 
   let notifyUser = false
+
 
   if (snapValues.authorUid !== receiverUid) {
     const payload = {

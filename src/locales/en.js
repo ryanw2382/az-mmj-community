@@ -161,6 +161,8 @@ const messages=defineMessages({
   street_address: 'Street Address',
   state: 'State',
   website: 'Website',
+  content: 'Message',
+
 
 
 

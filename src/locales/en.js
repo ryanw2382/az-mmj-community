@@ -167,6 +167,14 @@ const messages=defineMessages({
   website: 'Website',
   open_label: 'View Message',
   content: 'Message',
+  rating: 'Rating',
+  negitive_effects: 'Negitive Effects',
+  positive_effects: 'Positive Effects',
+  summary: 'Summary',
+  class: 'Class',
+  create_flower: 'New Flower',
+  delete_flower_title: 'Delete Flower',
+  delete_flower_message: 'Delete Message'
 
 });
 

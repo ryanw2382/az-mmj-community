@@ -62,7 +62,8 @@ const AsyncDispensary = MyLoadable({loader: () => import('../../containers/Dispe
 const AsyncDispensaries = MyLoadable({loader: () => import('../../containers/Dispensaries/Dispensaries')}, [AsyncDispensary]);
 const AsyncDispensaryMap = MyLoadable({loader: () => import('../../containers/Dispensaries/DispensaryMap')});
 
-const AsyncFlowers = MyLoadable({loader: () => import('../../containers/Flowers/Flowers')});
+const AsyncFlower = MyLoadable({loader: () => import('../../containers/Flowers/Flower')});
+const AsyncFlowers = MyLoadable({loader: () => import('../../containers/Flowers/Flowers')}, [AsyncFlower]);
 
 const AsyncEdibles = MyLoadable({loader: () => import('../../containers/Edibles/Edibles')});
 
@@ -112,6 +113,8 @@ const Routes = (props, context) => {
       <RestrictedRoute type='private' path="/users/edit/:uid/:editType" exact component={AsyncUser} />
 
       <RestrictedRoute type='private' path="/flowers" exact component={AsyncFlowers} />
+      <RestrictedRoute type='private' path="/flowers/edit/:uid" exact component={AsyncFlower} />
+      <RestrictedRoute type='private' path="/flowers/create" exact component={AsyncFlower} />
 
       <RestrictedRoute type='private' path="/edibles" exact component={AsyncEdibles} />
 

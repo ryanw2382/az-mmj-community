@@ -4,14 +4,17 @@ try {admin.initializeApp(functions.config().firebase);} catch(e) {} // You do th
 const { setCannabisReportsKey, Flower } = require('cannabis-reports')
 setCannabisReportsKey('9687a012203c12f7556d4a87b1b05294d49ebeb9')
 
-exports.getFlower = functions.https.onRequest((req, res) => {
+exports = module.exports = functions.https.onRequest((req, res) => {
+
+  const options = {
+    sort: '-updatedAt',
+    page: '1'
+  }
 
 
-  return Flower
+  Flower
     .all(options)
-    .then(data =>
-      admin.collection('flowers').document('{ucpc}')
-      .add(data))
+    .then(data => admin.collection('flowers').document('{ucpc}').set(data))
     .catch(err => console.log(err))
 
 });

@@ -10,9 +10,9 @@ exports = module.exports = functions.auth.user().onCreate( event => {
   const user = event.data // The Firebase user.
   const email = user.email // The email of the user.
   const displayName = user.displayName // The display name of the user.
-  const year=event.data.metadata.creationTime.slice(0, 4)
-  const month=event.data.metadata.creationTime.slice(5, 7)
-  const day=event.data.metadata.creationTime.slice(8, 10)
+  const year = event.data.metadata.creationTime.slice(0, 4)
+  const month = event.data.metadata.creationTime.slice(5, 7)
+  const day = event.data.metadata.creationTime.slice(8, 10)
 
   const dayCount = admin.database()
   .ref(`/user_registrations_per_day/${year}/${month}/${day}`)
@@ -22,20 +22,20 @@ exports = module.exports = functions.auth.user().onCreate( event => {
   .ref(`/user_registrations_per_month/${year}/${month}`)
   .transaction(current => (current || 0) + 1)
 
-  let promises=[dayCount, monthCount]
+  let promises = [dayCount, monthCount]
 
   if(email){
     const mailOptions = {
-      from: '"Ryan Wilson" <ryanw2382@gmail.com>',
+      from: '"Arizona Cannabis Community" <az.mmj.contact@gmail.com>',
       to: email,
-      subject: `Welcome to the AZ MMJ Community App!`,
-      text: `Hey ${displayName}! Welcome to the AZ MMJ Community App. I hope you will enjoy what we put together for you.`
+      subject: `Welcome to the Arizona Cannabis Community App!`,
+      text: `Hi ${displayName}! Welcome to the Arizona Cannabis Community App. We hope you enjoy what we put together for you.`
     }
 
     promises.push(mailTransport.sendMail(mailOptions))
   }
 
-  return Promise.all(promises).then(results=>{
+  return Promise.all(promises).then(results => {
     console.log(results);
   })
 })

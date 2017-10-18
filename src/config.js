@@ -1,3 +1,5 @@
+import firebase from 'firebase'
+
 const config= {
   firebase_config: {
     apiKey: "AIzaSyAlJEu6KpoAV3EyIYJW1Gh8WpDwPUGepBc",
@@ -16,12 +18,11 @@ const config= {
     messagingSenderId: "909985495567"
   },
   firebase_providers: [
-    'google.com',
-    'facebook.com',
-    'twitter.com',
-    'github.com',
-    'password',
-    'phone'
+    firebase.auth.GoogleAuthProvider,
+    firebase.auth.FacebookAuthProvider,
+    firebase.auth.TwitterAuthProvider,
+    firebase.auth.GithubAuthProvider,
+    firebase.auth.EmailAuthProvider,
   ],
   initial_state: {
     theme: 'dark',

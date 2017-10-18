@@ -4,23 +4,24 @@ try {admin.initializeApp(functions.config().firebase);} catch(e) {} // You do th
 
 exports = module.exports = functions.database.ref('/public_tasks/{taskUid}').onCreate((event)=> {
 
-  const eventSnapshot = event.data;
-  const userId = eventSnapshot.child('userId').val();
+  const taskUid = event.params.taskUid;
+  const eventSnapshot=event.data;
+  const userId=eventSnapshot.child('userId').val();
 
   return admin.database().ref(`/users`).once('value')
-  .then(snapshot => {
+  .then(snapshot =>{
 
-    let user = null;
-    let registrationTokens = [];
+    let user=null;
+    let registrationTokens=[];
 
     snapshot.forEach(function(childSnapshot) {
 
       const childData = childSnapshot.val();
 
-      if(childSnapshot.key === userId){
-        user = childData;
+      if(childSnapshot.key===userId){
+        user=childData;
       }else{
-        childSnapshot.child('notificationTokens').forEach(token => {
+        childSnapshot.child('notificationTokens').forEach(token =>{
           if(token.val()){
             registrationTokens.push(token.key);
           }

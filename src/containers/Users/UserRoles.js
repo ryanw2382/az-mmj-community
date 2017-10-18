@@ -33,12 +33,12 @@ class UserRoles extends Component {
 
   }
 
-  renderRoleItem = (i, k) => {
+  renderRoleItem = (i) => {
     const { roles, user_roles, match } = this.props
 
     const uid=match.params.uid
     const key=roles[i].key
-    const val=roles[k].val
+    const val=roles[i].val
     let userRoles=[]
 
     if(user_roles!==undefined){
@@ -81,13 +81,13 @@ class UserRoles extends Component {
 
     return (
       <div style={{height: '100%'}}>
-          <List style={{height: '100%'}} >
-            <ReactList
-              itemRenderer={(i, k) => this.renderRoleItem(i, k)}
-              length={roles?roles.length:0}
-              type='simple'
-            />
-          </List>
+        <List style={{height: '100%'}} >
+          <ReactList
+            itemRenderer={(i, k) => this.renderRoleItem(i, k)}
+            length={roles?roles.length:0}
+            type='simple'
+          />
+        </List>
       </div>
     );
   }

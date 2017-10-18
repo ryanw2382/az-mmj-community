@@ -86,7 +86,7 @@ UserForm.propTypes = {
   isAdmin: PropTypes.bool.isRequired,
   intl: intlShape.isRequired,
   initialized: PropTypes.bool.isRequired,
-  setDialogIsOpen: PropTypes.any.isRequired,
+  setDialogIsOpen: PropTypes.any,
   uid: PropTypes.string.isRequired
 }
 

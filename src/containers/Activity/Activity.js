@@ -10,7 +10,6 @@ import LinearProgress from 'material-ui/LinearProgress';
 import {injectIntl} from 'react-intl';
 import { deepOrange500, darkWhite } from 'material-ui/styles/colors';
 import config from '../../config';
-import { withFirebase } from 'firekit-provider';
 import { withRouter } from 'react-router-dom';
 
 export class Activity extends Component {
@@ -41,43 +40,16 @@ export class Activity extends Component {
       isLoading,
       dispatch,
       containerStyle,
-      firebaseApp,
-      watchConnection,
-      unwatchConnection,
-      watchList,
-      unwatchList,
-      unwatchAllLists,
-      watchPath,
-      unwatchPath,
-      unwatchAllPaths,
-      initMessaging,
-      watchAuth,
       pageTitle,
       height,
-      clearInitialization,
-      authStateChanged,
-      authError,
-      destroyList,
-      destroyPath,
-      clearApp,
-      match,
-      location,
-      clearMessage,
       staticContext,
-      watchCol,
-      unwatchCol,
-      destroyCol,
-      unwatchAllCols,
-      watchDoc,
-      unwatchDoc,
-      destroyDoc,
-      unwatchAllDocs,
+      valueLink,
       ...rest
     } = this.props;
 
-    const drawerWidth=config.drawer_width;
+    const drawerWidth = config.drawer_width;
 
-    const bodyContainerStyle={
+    const bodyContainerStyle = {
       backgroundColor: muiTheme.palette.canvasColor,
       top:64,
       bottom: 0,
@@ -85,12 +57,12 @@ export class Activity extends Component {
       ...containerStyle
     };
 
-    let headerTitle=''
+    let headerTitle = ''
 
     if(typeof title === 'string' || title instanceof String){
-      headerTitle=title;
-    }else{
-      headerTitle=pageTitle;
+      headerTitle = title;
+    } else {
+      headerTitle = pageTitle;
     }
 
     return (
@@ -101,38 +73,39 @@ export class Activity extends Component {
           <meta name="msapplication-navbutton-color" content={muiTheme.palette.primary1Color}/>
           <title>{headerTitle}</title>
         </Helmet>
-        <ResponsiveAppBar width={drawerWidth}
+        <ResponsiveAppBar
+          width={drawerWidth}
           title={title}
-          showMenuIconButton={onBackClick!==undefined?true:undefined}
+          showMenuIconButton={onBackClick !== undefined ? true:undefined}
           onLeftIconButtonTouchTap={onBackClick}
           iconElementLeft={this.getIconElementLeft()}
           {...rest}
         />
         {!isConnected &&
-          <div
-            id="offline-inicator"
-            style={{
-              zIndex:9999,
-              position: 'fixed',
-              top: 0,
-              height: 12,
-              backgroundColor: deepOrange500,
-              color: darkWhite,
-              width: '100%',
-              fontSize: 12,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
+        <div
+          id="offline-indicator"
+          style={{
+            zIndex:9999,
+            position: 'fixed',
+            top: 0,
+            height: 12,
+            backgroundColor: deepOrange500,
+            color: darkWhite,
+            width: '100%',
+            fontSize: 12,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
 
-            }} >
+          }} >
             <span>
               {intl.formatMessage({id:'no_connection'})}
             </span>
-          </div>
+        </div>
         }
 
         {isLoading &&
-          <LinearProgress mode="indeterminate" color={muiTheme.palette.accent1Color} style={{zIndex:9998, position: 'fixed', top: 0, height: height?height:5}}/>
+        <LinearProgress mode="indeterminate" color={muiTheme.palette.accent1Color} style={{zIndex:9998, position: 'fixed', top: 0, height: height?height:5}}/>
         }
 
         <BodyContainer width={drawerWidth} id="bodyContainer" ref="bodyContainer" withRef style={bodyContainerStyle} >
@@ -155,4 +128,4 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps,
-)(injectIntl(muiThemeable()(withFirebase(withRouter(Activity)))));
+)(injectIntl(muiThemeable()(withRouter(Activity))));

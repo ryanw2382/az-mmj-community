@@ -6,7 +6,7 @@ module.exports = {
       return;
     }
 
-    const eventSnapshot = event.data;
+    const eventSnapshot=event.data;
 
     //Sync only if displayName and photoURL changed
     if(!eventSnapshot.child('displayName').changed() && !eventSnapshot.child('photoURL').changed()){
@@ -14,13 +14,13 @@ module.exports = {
     }
 
 
-    let tasksRef = admin.database().ref("/public_tasks");
+    let tasksRef=admin.database().ref("/public_tasks");
 
     let query = tasksRef.orderByChild("userId").equalTo(event.params.userUid);
 
 
-    const userName = eventSnapshot.child('displayName').val();
-    const userPhotoURL = eventSnapshot.child('photoURL').val();
+    const userName=eventSnapshot.child('displayName').val();
+    const userPhotoURL=eventSnapshot.child('photoURL').val();
 
 
 
@@ -59,7 +59,7 @@ module.exports = {
       return;
     }
 
-    const eventSnapshot = event.data;
+    const eventSnapshot=event.data;
 
     //Sync only if displayName and photoURL changed
     if(!eventSnapshot.child('displayName').changed() && !eventSnapshot.child('photoURL').changed()){
@@ -67,18 +67,18 @@ module.exports = {
     }
 
 
-    let tasksRef = admin.database().ref("/public_chats");
+    let tasksRef=admin.database().ref("/public_chats");
 
     let query = tasksRef.orderByChild("userId").equalTo(event.params.userUid);
 
 
-    const userName = eventSnapshot.child('displayName').val();
-    const userPhotoURL = eventSnapshot.child('photoURL').val();
+    const userName=eventSnapshot.child('displayName').val();
+    const userPhotoURL=eventSnapshot.child('photoURL').val();
 
 
 
     return query.once('value')
-    .then((snapshot) => {
+    .then((snapshot) =>{
 
       let updates = {};
       snapshot.forEach((childSnapshot) => {

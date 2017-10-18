@@ -12,9 +12,9 @@ import FontIcon from 'material-ui/FontIcon';
 class TaskForm extends Component {
   componentDidMount() {
     this.refs.title // the Field
-    .getRenderedComponent() // on Field, returns ReduxFormMaterialUITextField
-    .getRenderedComponent() // on ReduxFormMaterialUITextField, returns TextField
-    .focus(); // on TextField
+      .getRenderedComponent() // on Field, returns ReduxFormMaterialUITextField
+      .getRenderedComponent() // on ReduxFormMaterialUITextField, returns TextField
+      .focus(); // on TextField
   }
 
   render() {
@@ -73,42 +73,42 @@ class TaskForm extends Component {
                         <FontIcon className="material-icons" >
                           person
                         </FontIcon>}
-                      />
-                      <div style={{marginLeft: 15}}>
-                        {val.name}
-                      </div>
+                    />
+                    <div style={{marginLeft: 15}}>
+                      {val.name}
                     </div>
                   </div>
-                )
-              })}
-            </Field>
-          </div>
-          <br/>
+                </div>
+              )
+            })}
+          </Field>
+        </div>
+        <br/>
 
-          <div>
-            <RaisedButton
-              label={intl.formatMessage({id: 'submit'})}
-              type="submit"
-              primary={true}
-              disabled={!initialized}
-            />
-          </div>
-        </form>
-      );
-    }
+        <div>
+          <RaisedButton
+            label={intl.formatMessage({id: 'submit'})}
+            type="submit"
+            primary={true}
+            disabled={!initialized}
+          />
+        </div>
+      </form>
+    );
   }
+}
 
-  const mapStateToProps = state => {
-    const { intl, lists } = state;
+const mapStateToProps = state => {
+  const { intl, lists } = state;
 
-    return {
-      intl,
-      users: lists.users
-    };
+  return {
+    intl,
+    users: lists.users
   };
+};
 
-  TaskForm=reduxForm({form: 'task'})(TaskForm);
+TaskForm=reduxForm({form: 'task'})(TaskForm);
 
-  export default connect(
-    mapStateToProps
-  )(injectIntl(TaskForm));
+export default connect(
+  mapStateToProps
+)(injectIntl(TaskForm));

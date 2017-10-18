@@ -5,22 +5,24 @@
 
 # testing
 /coverage
+jest/
 
 # production
 /build
 
 # misc
 /.idea
-
 .DS_Store
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+/functions/db/crFlower/
+/functions/cr/
 
 # firebase
 firebase-debug.log
 
 # codecov
 codecov.yml
-/functions/db/crFlower/
-jest/
+
+

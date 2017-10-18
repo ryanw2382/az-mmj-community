@@ -1,6 +1,6 @@
 {
   "short_name": "Arizona Cannabis",
-  "name": "Arizona Cannabis Community App",
+  "name": "Arizona Cannabis Community",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -16,5 +16,6 @@
   "start_url": "./",
   "display": "standalone",
   "background_color": "#222222",
+  "theme_color": "#222222",
   "gcm_sender_id": "103953800507"
 }

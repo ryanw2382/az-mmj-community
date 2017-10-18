@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {injectIntl} from 'react-intl';
 import { Activity } from '../../containers/Activity';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 import firebaseui from 'firebaseui';
-import { firebaseAuth } from '../../firebase';
+import {firebaseAuth} from '../../firebase';
 import config from '../../config';
 import { withRouter } from 'react-router-dom';
 import { withFirebase } from 'firekit-provider'
@@ -66,7 +66,7 @@ SignIn.propTypes = {
 
 
 const mapStateToProps = (state) => {
-  const { browser } = state;
+  const {browser } = state;
   return {
     browser
   };

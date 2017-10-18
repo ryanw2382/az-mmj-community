@@ -21,14 +21,14 @@ import Scrollbar from '../../components/Scrollbar/Scrollbar';
 import Image from 'material-ui-image'
 
 
-const pageStep=20;
+const pageStep = 20;
 
 class ChatMessages extends Component {
 
   constructor(props) {
     super(props);
     this.name = null;
-    this.listEnd=null;
+    this.listEnd = null;
   }
 
 
@@ -41,10 +41,10 @@ class ChatMessages extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const {unwatchList, path} =this.props;
-    const {path: nextPath} =nextProps;
+    const {unwatchList, path} = this.props;
+    const {path: nextPath} = nextProps;
 
-    if(path!==nextPath){
+    if(path !== nextPath){
       unwatchList(path);
       this.initMessages(nextProps);
     }
@@ -61,7 +61,7 @@ class ChatMessages extends Component {
   }
 
   initMessages = (props) => {
-    const {watchList, firebaseApp, path}=props;
+    const { watchList, firebaseApp, path } = props;
 
     let messagesRef=firebaseApp.database().ref(path).orderByKey().limitToLast(pageStep);
     watchList(messagesRef);
@@ -127,14 +127,14 @@ class ChatMessages extends Component {
     let currentAuthor='';
 
     if(messages===undefined){
-      return <div></div>
+      return <div>No Messages To Display</div>
     }
 
     return messages.map((row, i) => {
       const values=row.val
       //const key=row.key
 
-      if (values.created == null) {
+      if (values.created === null) {
         return undefined
       }
 
@@ -183,8 +183,8 @@ class ChatMessages extends Component {
               marginTop: authorChanged===true?8:1,
               boxShadow: muiTheme.chip.shadow,
               borderRadius: authorChanged===true?(values.authorUid===auth.uid?'8px 0px 8px 8px':'0px 8px 8px 8px'):'8px 8px 8px 8px' ,
-              backgroundColor:backgroundColor,
-              color:color,
+              backgroundColor: backgroundColor,
+              color: color,
               fontFamily: muiTheme.fontFamily}}>
               <div style={{
                 display: 'flex',
@@ -226,7 +226,7 @@ class ChatMessages extends Component {
                     <a target="_blank" href={values.link}>{values.link}</a>
                   }
                   {
-                    type === 'image' && values.image != null &&
+                    type === 'image' && values.image !== null &&
 
                     <Image
                       style={{width: 'auto', height: 'auto', paddingTop: 0}}
@@ -260,7 +260,7 @@ class ChatMessages extends Component {
     });
   }
 
-  renderItem = (i, k) => {
+  renderItem = (i) => {
     const { predefinedMessages, muiTheme, setSimpleValue } = this.props;
 
     const key = predefinedMessages[i].key;
@@ -274,7 +274,7 @@ class ChatMessages extends Component {
               setSimpleValue('chatMessageMenuOpen', false)
               this.handleAddMessage("text", message)
             }}>
-            <FontIcon className="material-icons" color={muiTheme.palette.text1Color}>send</FontIcon>
+            <FontIcon className="material-icons" color={muiTheme.palette.textColor}>send</FontIcon>
           </IconButton>
         }
         onClick={()=>{
@@ -295,7 +295,7 @@ class ChatMessages extends Component {
   uploadSelectedFile = (file, handleAddMessage) => {
     const { firebaseApp, intl } = this.props
 
-    if(file == null) {
+    if(file === null) {
       return
     }
 
@@ -353,7 +353,7 @@ class ChatMessages extends Component {
 
         <Scrollbar
           style={{
-            backgroundColor: muiTheme.palette.convasColor,
+            backgroundColor: muiTheme.palette.canvasColor,
             width: '100%',
           }}>
           <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -407,7 +407,7 @@ class ChatMessages extends Component {
                   style={{height:42, width: 'calc(100% - 72px)', lineHeight: undefined}}
                   underlineShow={false}
                   fullWidth={true}
-                  autocomplete="off"
+                  autoComplete="off"
                   hintText={intl.formatMessage({id:'write_message_hint'})}
                   onKeyDown={(event)=>{this.handleKeyDown(event, () => this.handleAddMessage("text", this.name.getValue()))}}
                   ref={(field) => { this.name = field}}

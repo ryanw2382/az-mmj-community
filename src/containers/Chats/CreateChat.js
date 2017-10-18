@@ -32,19 +32,19 @@ class Users extends Component {
 
     switch (provider.providerId) {
       case 'google.com':
-      return <GoogleIcon color={color}/>
+        return <GoogleIcon color={color}/>
       case 'facebook.com':
-      return <FacebookIcon color={color}/>
+        return <FacebookIcon color={color}/>
       case 'twitter.com':
-      return <TwitterIcon color={color}/>
+        return <TwitterIcon color={color}/>
       case 'github.com':
-      return <GitHubIcon color={color}/>
-/*      case 'phone':
-      return <FontIcon className="material-icons" color={color} >phone</FontIcon>*/
+        return <GitHubIcon color={color}/>
+      case 'phone':
+        return <FontIcon className="material-icons" color={color} >phone</FontIcon>
       case 'password':
-      return <FontIcon className="material-icons" color={color} >email</FontIcon>
+        return <FontIcon className="material-icons" color={color} >email</FontIcon>
       default:
-      return undefined
+        return undefined
     }
   }
 

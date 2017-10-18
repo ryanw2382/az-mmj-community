@@ -19,6 +19,7 @@ import {withRouter} from 'react-router-dom';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import { withFirebase } from 'firekit-provider'
+import Scrollbar from '../../components/Scrollbar/Scrollbar';
 
 class Tasks extends Component {
 
@@ -49,9 +50,9 @@ class Tasks extends Component {
     this.scrollToBottom();
   }
 
-  handleKeyDown = (event, onSucces) => {
+  handleKeyDown = (event, onSuccess) => {
     if(event.keyCode===13){
-      onSucces();
+      onSuccess();
     }
   }
 
@@ -89,23 +90,23 @@ class Tasks extends Component {
     const {auth} =this.props;
 
     return task.completed?
-    <Avatar
-      onClick={auth.uid===task.userId?()=>{this.handleUpdateTask(key,{...task, completed: !task.completed})}:undefined}
-      alt="person"
-      icon={<FontIcon className="material-icons" >done</FontIcon>}
-      backgroundColor={green800}
-    />
-    :
-    <Avatar
-      src={task.userPhotoURL}
-      onClick={auth.uid===task.userId?()=>{this.handleUpdateTask(key,{...task, completed: !task.completed})}:undefined}
-      alt="person"
-      icon={
-        <FontIcon className="material-icons">
-          person
-        </FontIcon>
-      }
-    />
+      <Avatar
+        onClick={auth.uid===task.userId?()=>{this.handleUpdateTask(key,{...task, completed: !task.completed})}:undefined}
+        alt="person"
+        icon={<FontIcon className="material-icons" >done</FontIcon>}
+        backgroundColor={green800}
+      />
+      :
+      <Avatar
+        src={task.userPhotoURL}
+        onClick={auth.uid===task.userId?()=>{this.handleUpdateTask(key,{...task, completed: !task.completed})}:undefined}
+        alt="person"
+        icon={
+          <FontIcon className="material-icons">
+            person
+          </FontIcon>
+        }
+      />
   }
 
   renderList(tasks) {
@@ -130,11 +131,11 @@ class Tasks extends Component {
           leftAvatar={this.userAvatar(key, task)}
           rightIconButton={
             task.userId===auth.uid?
-            <IconButton
-              style={{display:browser.lessThan.medium?'none':undefined}}
-              onClick={()=>{setDialogIsOpen('delete_task_from_list', key);}}>
-              <FontIcon className="material-icons" color={'red'}>{'delete'}</FontIcon>
-            </IconButton>:undefined
+              <IconButton
+                style={{display:browser.lessThan.medium?'none':undefined}}
+                onClick={()=>{setDialogIsOpen('delete_task_from_list', key);}}>
+                <FontIcon className="material-icons" color={'red'}>{'delete'}</FontIcon>
+              </IconButton>:undefined
           }
           id={key}
         />
@@ -187,47 +188,49 @@ class Tasks extends Component {
         containerStyle={{overflow:'hidden'}}
         title={intl.formatMessage({id: 'tasks'})}>
 
-        <div id="scroller" style={{overflow: 'auto', height: '100%'}}>
+        <Scrollbar>
 
           <div style={{overflow: 'none', backgroundColor: muiTheme.palette.canvasColor, paddingBottom: 56}}>
             <List  id='test' style={{height: '100%'}} ref={(field) => { this.list = field; }}>
               {this.renderList(tasks)}
             </List>
             <div style={{ float:"left", clear: "both" }}
-              ref={(el) => { this.listEnd = el; }}
+                 ref={(el) => { this.listEnd = el; }}
             />
           </div>
 
-
-          {tasks &&
-            <BottomNavigation style={{width: '100%', position: 'absolute', bottom: 0, right: 0, left: 0, zIndex: 50}}>
-              <div style={{display:'flex', alignItems: 'center', justifyContent: 'center', padding: 15 }}>
-                <TextField
-                  id="public_task"
-                  fullWidth={true}
-                  onKeyDown={(event)=>{this.handleKeyDown(event, this.handleAddTask)}}
-                  ref={(field) => { this.name = field; this.name && this.name.focus(); }}
-                  type="Text"
-                />
-                <IconButton
-                  onClick={this.handleAddTask}>
-                  <FontIcon className="material-icons" color={muiTheme.palette.primary1Color}>send</FontIcon>
-                </IconButton>
-              </div>
-            </BottomNavigation>
-          }
-
-          <Dialog
-            title={intl.formatMessage({id: 'delete_task_title'})}
-            actions={actions}
-            modal={false}
-            open={dialogs.delete_task_from_list!==undefined}
-            onRequestClose={this.handleClose}>
-            {intl.formatMessage({id: 'delete_task_message'})}
-          </Dialog>
+        </Scrollbar>
 
 
-        </div>
+        {tasks &&
+        <BottomNavigation style={{width: '100%', position: 'absolute', bottom: 0, right: 0, left: 0, zIndex: 50}}>
+          <div style={{display:'flex', alignItems: 'center', justifyContent: 'center', padding: 15 }}>
+            <TextField
+              id="public_task"
+              fullWidth={true}
+              onKeyDown={(event)=>{this.handleKeyDown(event, this.handleAddTask)}}
+              ref={(field) => { this.name = field; this.name && this.name.focus(); }}
+              type="Text"
+            />
+            <IconButton
+              onClick={this.handleAddTask}>
+              <FontIcon className="material-icons" color={muiTheme.palette.primary1Color}>send</FontIcon>
+            </IconButton>
+          </div>
+        </BottomNavigation>
+        }
+
+        <Dialog
+          title={intl.formatMessage({id: 'delete_task_title'})}
+          actions={actions}
+          modal={false}
+          open={dialogs.delete_task_from_list!==undefined}
+          onRequestClose={this.handleClose}>
+          {intl.formatMessage({id: 'delete_task_message'})}
+        </Dialog>
+
+
+
 
       </Activity>
     );

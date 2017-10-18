@@ -29,19 +29,19 @@ class MyAccount extends Component {
 
     switch (provider.PROVIDER_ID) {
       case 'google.com':
-      return <GoogleIcon color={color}/>
+        return <GoogleIcon color={color}/>
 
       case 'facebook.com':
-      return <FacebookIcon color={color}/>
+        return <FacebookIcon color={color}/>
 
       case 'twitter.com':
-      return <TwitterIcon color={color}/>
+        return <TwitterIcon color={color}/>
 
       case 'github.com':
-      return <GitHubIcon color={color}/>
+        return <GitHubIcon color={color}/>
 
       default:
-      return undefined
+        return undefined
     }
   }
 
@@ -77,6 +77,9 @@ class MyAccount extends Component {
     }
     if(provider.indexOf('twitter')>-1){
       return new firebase.auth.TwitterAuthProvider();
+    }
+    if(provider.indexOf('phone')>-1){
+      return new firebase.auth.PhoneAuthProvider();
     }
 
     throw new Error('Provider is not supported!');
@@ -152,7 +155,7 @@ class MyAccount extends Component {
 
 
     const simpleChange=(values.displayName && values.displayName.localeCompare(auth.displayName)) ||
-    (values.photoURL && values.photoURL.localeCompare(auth.photoURL));
+      (values.photoURL && values.photoURL.localeCompare(auth.photoURL));
 
     let simpleValues={
       displayName: values.displayName,

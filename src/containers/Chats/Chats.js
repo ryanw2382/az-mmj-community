@@ -13,7 +13,7 @@ import FloatingActionButton from 'material-ui/FloatingActionButton';
 import FontIcon from 'material-ui/FontIcon';
 import PropTypes from 'prop-types';
 import { setPersistentValue } from '../../store/persistentValues/actions';
-import ChatMessages from './ChatMessages';
+import { ChatMessages } from '../../containers/ChatMessages';
 import Scrollbar from '../../components/Scrollbar/Scrollbar';
 import { filterSelectors } from 'material-ui-filter'
 
@@ -38,7 +38,7 @@ class Chats extends Component {
     }
   }
 
-  renderItem = (i, k) => {
+  renderItem = (i) => {
     const { list, intl, currentChatUid, usePreview, muiTheme } = this.props;
 
     const key=list[i].key;
@@ -64,17 +64,17 @@ class Chats extends Component {
               {val.lastCreated?intl.formatTime(new Date(val.lastCreated), 'hh:mm'):undefined}
             </div>
             {val.unread>0 &&
-              <div style={{textAlign: 'right'}}>
-                <Avatar
-                  size={20}
-                  backgroundColor={muiTheme.palette.primary1Color}
-                  color={muiTheme.palette.primaryTextColor}
-                  alt="unread">
-                  <div style={{color: muiTheme.listItem.secondaryTextColor}} >
-                    {val.unread}
-                  </div>
-                </Avatar>
-              </div>
+            <div style={{textAlign: 'right'}}>
+              <Avatar
+                size={20}
+                backgroundColor={muiTheme.palette.primary1Color}
+                color={muiTheme.palette.primaryTextColor}
+                alt="unread">
+                <div style={{color: muiTheme.listItem.secondaryTextColor}} >
+                  {val.unread}
+                </div>
+              </Avatar>
+            </div>
             }
           </div>
         }
@@ -93,7 +93,8 @@ class Chats extends Component {
       list,
       history,
       currentChatUid,
-      usePreview
+      usePreview,
+      auth
     } = this.props;
 
     const isDisplayingMessages=usePreview && currentChatUid;
@@ -106,45 +107,45 @@ class Chats extends Component {
         <div style={{
           height: '100%',
           width: '100%',
-          alignItems: 'strech',
+          alignItems: 'stretch',
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'flex-start',
           flexDirection: 'row'
         }}>
-        <Scrollbar style={{ maxWidth: usePreview?300:undefined}}>
-          <List style={{padding:0, height: '100%', width:'100%', maxWidth: usePreview?300:undefined}} >
-            <ReactList
-              style={{maxWidth: 300}}
-              itemRenderer={this.renderItem}
-              length={list?list.length:0}
-              type='simple'
-            />
-          </List>
-        </Scrollbar>
+          <Scrollbar style={{ maxWidth: usePreview?300:undefined}}>
+            <List style={{padding:0, height: '100%', width:'100%', maxWidth: usePreview?300:undefined}} >
+              <ReactList
+                style={{maxWidth: 300}}
+                itemRenderer={this.renderItem}
+                length={list?list.length:0}
+                type='simple'
+              />
+            </List>
+          </Scrollbar>
 
 
-        <div style={{position: 'absolute', width: usePreview?300:'100%', bottom:5}}>
-          <FloatingActionButton
-            onClick={()=>{history.push(`/chats/create`)}}
-            style={{position: 'absolute', right: 20, bottom: 10, zIndex: 99}}
-            secondary={true}>
-            <FontIcon className="material-icons" >chat</FontIcon>
-          </FloatingActionButton>
+          <div style={{position: 'absolute', width: usePreview?300:'100%', bottom:5}}>
+            <FloatingActionButton
+              onClick={()=>{history.push(`/chats/create`)}}
+              style={{position: 'absolute', right: 20, bottom: 10, zIndex: 99}}
+              secondary={true}>
+              <FontIcon className="material-icons" >chat</FontIcon>
+            </FloatingActionButton>
+          </div>
+
+          <div style={{marginLeft: 0, flexGrow: 1}}>
+            {isDisplayingMessages &&
+            <ChatMessages path={`user_chat_messages/${auth.uid}/${currentChatUid}`} />
+            }
+          </div>
+          <div
+            style={{ float:"left", clear: "both" }}
+          />
         </div>
-
-        <div style={{marginLeft: 0, flexGrow: 1}}>
-          {isDisplayingMessages &&
-            <ChatMessages uid={currentChatUid} />
-          }
-        </div>
-        <div
-          style={{ float:"left", clear: "both" }}
-        />
-      </div>
-    </Activity>
-  );
-}
+      </Activity>
+    );
+  }
 
 }
 

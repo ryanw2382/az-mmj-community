@@ -5,7 +5,7 @@
 
 # testing
 /coverage
-jest/
+
 
 # production
 /build
@@ -16,8 +16,7 @@ jest/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/functions/db/crFlower/
-/functions/cr/
+
 
 # firebase
 firebase-debug.log

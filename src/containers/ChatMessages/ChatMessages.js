@@ -226,7 +226,7 @@ class ChatMessages extends Component {
                     <a target="_blank" href={values.link}>{values.link}</a>
                   }
                   {
-                    type === 'image' && values.image != null &&
+                    type === 'image' && values.image !== null &&
 
                     <Image
                       style={{width: 'auto', height: 'auto', paddingTop: 0}}
@@ -407,7 +407,7 @@ class ChatMessages extends Component {
                   style={{height:42, width: 'calc(100% - 72px)', lineHeight: undefined}}
                   underlineShow={false}
                   fullWidth={true}
-                  autocomplete="off"
+                  autoComplete="off"
                   hintText={intl.formatMessage({id:'write_message_hint'})}
                   onKeyDown={(event)=>{this.handleKeyDown(event, () => this.handleAddMessage("text", this.name.getValue()))}}
                   ref={(field) => { this.name = field}}

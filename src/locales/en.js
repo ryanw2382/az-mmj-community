@@ -166,8 +166,7 @@ const messages=defineMessages({
   state: 'State',
   website: 'Website',
   open_label: 'View Message',
-
-
+  content: 'Message',
 
 });
 

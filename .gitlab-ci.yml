@@ -34,5 +34,5 @@ deploy:
     - master
   script:
     - npm run build
-    - firebase use default --token $FIREBASE_DEPLOY_KEY
-    - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --only hosting --token $FIREBASE_DEPLOY_KEY
+    - firebase use dev --token 1/ksPiebLqAGAqvXbLZVQ2srosTFYpPVFpBO6uhcSZeRM
+    - firebase deploy -m "Pipeline $CI_PIPELINE_ID, build $CI_BUILD_ID" --non-interactive --only hosting --token 1/ksPiebLqAGAqvXbLZVQ2srosTFYpPVFpBO6uhcSZeRM

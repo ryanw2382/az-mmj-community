@@ -8,6 +8,7 @@
     "firebase-functions": "^0.7.1",
     "glob": "^7.1.2",
     "nodemailer": "^4.2.0"
+    "request-promise": "^4.2.2"
   },
   "private": true,
   "scripts": {

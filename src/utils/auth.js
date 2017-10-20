@@ -2,7 +2,11 @@ export const grants = [
   'create_company',
   'edit_company',
   'delete_company',
-  'read_companies'
+  'read_companies',
+  'create_dispensary',
+  'edit_dispensary',
+  'delete_dispensary',
+  'read_dispensary'
 ]
 
 export default function isGranted (state, grant) {

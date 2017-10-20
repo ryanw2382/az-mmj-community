@@ -74,13 +74,9 @@ const messages=defineMessages({
   error: 'Error!',
   companies: 'Companies',
   create_company: 'Create company',
-  create_dispensary: 'Create Dispensary',
   edit_company: 'Edit company',
-  edit_dispensary: 'Edit Dispensary',
   delete_company_title: 'Delete company?',
   delete_company_message: 'The company will be deleted!',
-  delete_dispensary_title: 'Delete Dispensary?',
-  delete_dispensary_message: 'Are you sure you want to delete this Dispensary?',
   full_name_label: 'Full Name',
   full_name_hint: 'Enter Full Name',
   vat_label: 'UID',
@@ -91,7 +87,7 @@ const messages=defineMessages({
   name_hint: 'Enter Name',
   public_chats: 'Public Chat',
   delete_message_title: 'Delete Message?',
-  delete_message_message: 'Message Will Be Deleted!',
+  delete_message_message: 'Are yu sure you want to delete this Message?',
   users_count_title: '{number} Users',
   user_registrationg_graph_label: 'User Registrations',
   error_required_field: 'This Field is Required',
@@ -122,6 +118,7 @@ const messages=defineMessages({
   private: 'Private',
   public: 'Public',
   grant_read_companies: 'Read Companies',
+  read_company: 'View Companies',
   grant_create_company: 'Create Company',
   grant_edit_company: 'Edit Company',
   grant_delete_company: 'Delete Company',
@@ -146,19 +143,12 @@ const messages=defineMessages({
   not_match_found: 'No Match Found',
   edit_user: 'Edit User',
   firestore: 'Firestore',
-  hot_dog_status: 'Hot Dog Status',
   user_label_search: 'Search User',
   document: 'Document',
   collection: 'Collection',
   value_label: 'Role Value',
   my_location: 'My Location',
-  cannabis: 'Cannabis',
-  edibles: 'Edibles',
-  extracts: 'Extracts',
-  flowers: 'Flowers',
-  dispensaries: 'Dispensaries',
   contactUs: 'Contact Us',
-  dispensary_map: 'Dispensaries',
   Manage: 'Manage',
   contact_us: 'Contact Us',
   city: 'City',
@@ -167,6 +157,62 @@ const messages=defineMessages({
   website: 'Website',
   open_label: 'View Message',
 
+
+// Cannabis terms that have been added to the code should be updated under here by category
+  cannabis: 'Cannabis',
+
+// Add all Flower terms under here
+  flowers: 'Flowers',
+  edit_flower: 'Edit Flower',
+  delete_flower_title: 'Delete Flower?',
+  delete_flower_message: 'Are you sure you want to delete this Flower?',
+  class: 'Type',
+  summary: 'Description',
+  positive_effects: 'Positive Effects',
+  negative_effects: 'Negative Effects',
+  rating: 'Rating',
+  flower_type_hint: 'Hybrid, Indica or Sativa',
+  flower_type_label: 'Flower Type',
+  create_flower: 'Add Flower',
+
+// Add all the Edible terms under here
+  edibles: 'Edibles',
+  edit_edible: 'Edit Edible',
+  delete_edible_title: 'Delete Edible?',
+  delete_edible_message: 'Are you sure you want to delete this Edible?',
+  ingredients: 'Ingredients',
+  directions: 'Directions',
+  create_edible: 'Add Edible',
+
+
+
+// Add all the extract terms under here
+  extracts: 'Extracts',
+  edit_extract: 'Edit Extract',
+  delete_extract: 'Delete Extract',
+  delete_extract_tile: 'Delete Extract Tile',
+  delete_extract_title: 'Delete Extract?',
+  delete_extract_message: 'Are you sure you want to delete this Extract?',
+  product_hint: 'Enter the name of your Product',
+  product_label: 'Extract Name',
+  strain: 'Strain Name',
+  brand: 'Brand Name',
+  thc_cbd: 'THC or CBD Amount',
+  create_extract: 'Add Extract',
+
+
+
+// Add all Dispensary terms under here
+  dispensaries: 'Dispensaries',
+  dispensary_map: 'Dispensaries',
+  grant_create_dispensary: 'Add new Dispensaries',
+  grant_edit_dispensary: 'Edit a Dispensaries information',
+  grant_read_dispensary: 'View Dispensaries',
+  grant_delete_dispensary: 'Remove Dispensaries',
+  create_dispensary: 'Create Dispensary',
+  edit_dispensary: 'Edit Dispensary',
+  delete_dispensary_title: 'Delete Dispensary?',
+  delete_dispensary_message: 'Are you sure you want to delete this Dispensary?',
 
 
 });

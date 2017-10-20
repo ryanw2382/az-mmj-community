@@ -1,69 +1,56 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import muiThemeable from 'material-ui/styles/muiThemeable';
 import { injectIntl } from 'react-intl';
 import { Activity } from '../../containers/Activity';
-import { withFirebase } from 'firekit-provider';
-import { connect } from 'react-redux'
 import {List, ListItem } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import FontIcon from 'material-ui/FontIcon';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
 import {withRouter} from 'react-router-dom';
 import Avatar from 'material-ui/Avatar';
-import muiThemeable from 'material-ui/styles/muiThemeable';
-// eslint-disable-next-line
-import firestore from 'firebase/firestore';
-
+import { withFirebase } from 'firekit-provider'
+import isGranted  from '../../utils/auth';
+import Scrollbar from '../../components/Scrollbar/Scrollbar';
 
 class Flowers extends Component {
 
   componentDidMount() {
-    this.handleWatch()
+    const { watchList, firebaseApp}=this.props;
+
+    let ref=firebaseApp.database().ref('flowers').limitToFirst(20);
+
+    watchList(ref);
   }
 
-  componentWillUnmount() {
-    this.handleUnwatch()
-  }
+  renderList(flowers) {
+    const {history} =this.props;
 
-  handleWatch = () => {
-    const { watchCol }= this.props
-
-    watchCol('flowers')
-  }
-
-  handleUnwatch = () => {
-    const { unwatchCol } = this.props
-
-    unwatchCol('flowers')
-  }
-
-  renderList = () => {
-    const {history, flowers} = this.props;
-
-    if (flowers === undefined) {
-      return <div>Nothing Here!</div>
+    if(flowers===undefined){
+      return <div>No Flowers to display</div>
     }
 
-    return flowers.map((flower, ucpc) => {
+    return flowers.map((flower, index) => {
 
-      return <div key={ucpc}>
+      return <div key={index}>
         <ListItem
           leftAvatar={
             <Avatar
-              src={flowers.val.image}
-              alt={flowers.val.name}
+              src={flower.val.photoURL}
+              alt="business"
               icon={
                 <FontIcon className="material-icons">
-                  store
+                  business
                 </FontIcon>
               }
             />
           }
-          key={ucpc}
-          primaryText={flowers.val.name}
-          secondaryText={flowers.val.ucpc}
-          onClick={() => { history.push(`/flowers/${flowers.ucpc}`)
-          }}
-          id={ucpc}
+          key={index}
+          primaryText={flower.val.name}
+          secondaryText={flower.val.class}
+          onClick={()=>{history.push(`/flowers/edit/${flower.key}`)}}
+          id={index}
         />
         <Divider inset={true}/>
       </div>
@@ -71,47 +58,57 @@ class Flowers extends Component {
   }
 
 
-  render() {
-    const { intl, flowers, muiTheme } = this.props;
-
+  render(){
+    const { intl, flowers, muiTheme, history, isGranted } =this.props;
 
     return (
       <Activity
-        isLoading={flowers === undefined}
+        isLoading={flowers===undefined}
         containerStyle={{overflow:'hidden'}}
         title={intl.formatMessage({id: 'flowers'})}>
 
-      <div id="scroller" style={{overflow: 'auto', height: '100%'}}>
+        <Scrollbar>
 
-        <div style={{overflow: 'none', backgroundColor: muiTheme.palette.canvasColor}}>
+          <div style={{overflow: 'none', backgroundColor: muiTheme.palette.canvasColor}}>
+            <List  id='test' style={{height: '100%'}} ref={(field) => { this.list = field; }}>
+              {this.renderList(flowers)}
+            </List>
+          </div>
 
-          <List id="test" style={{height: '100%'}}
-                ref={(field) => { this.list = field; }}>
-            {this.renderList(flowers)}
-          </List>
-
-        </div>
-      </div>
+          <div style={{position: 'fixed', right: 18, zIndex:3, bottom: 18, }}>
+            {
+              isGranted('create_flower') &&
+              <FloatingActionButton secondary={true} onClick={()=>{history.push(`/flowers/create`)}} style={{zIndex:3}}>
+                <FontIcon className="material-icons" >add</FontIcon>
+              </FloatingActionButton>
+            }
+          </div>
+        </Scrollbar>
       </Activity>
     );
+
   }
+
 }
 
 Flowers.propTypes = {
   flowers: PropTypes.array,
   history: PropTypes.object,
+  isGranted: PropTypes.func.isRequired,
+};
 
-}
 const mapStateToProps = (state) => {
   const { auth, browser, lists } = state;
 
   return {
     flowers: lists.flowers,
     auth,
-    browser
+    browser,
+    isGranted: grant=>isGranted(state, grant)
   };
 };
 
+
 export default connect(
-  mapStateToProps
+  mapStateToProps,
 )(injectIntl(muiThemeable()(withRouter(withFirebase(Flowers)))));

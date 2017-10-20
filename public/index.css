@@ -39,9 +39,9 @@ html, body, #root{
 
 .google-maps {
   position: relative;
-  padding-bottom: 52%;
-  padding-top: 30px;
-  height: 0;
+  padding-bottom: 0;
+  padding-top: 0;
+  height: 100%;
   overflow: hidden;
 }
 .google-maps iframe {
@@ -53,4 +53,12 @@ html, body, #root{
   width: 100% !important;
   height: 100% !important;
   border: none;
+}
+
+.a {
+  fill:#004b00;
+}
+
+.b {
+  fill:#000000;
 }

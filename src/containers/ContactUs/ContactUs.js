@@ -1,30 +1,19 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { injectIntl, intlShape } from 'react-intl';
 import muiThemeable from 'material-ui/styles/muiThemeable';
-import { change, submit } from 'redux-form';
+import { submit } from 'redux-form';
 import { withFirebase } from 'firekit-provider'
-import { Field, reduxForm } from 'redux-form'
 import { Activity } from '../../containers/Activity';
 import {Card, CardTitle, CardText} from 'material-ui/Card';
-import { Form } from 'redux-form';
 import EmailForm  from '../../components/Forms/EmailForm'
-import { TextField } from 'redux-form-material-ui';
 
-const path='/contact-us/'
 
 class ContactUs extends Component {
   render() {
     const {
-      history,
       intl,
-      match,
-      submit,
-      muiTheme,
-      firebaseApp
     }=this.props;
-    const uid=match.params.uid
 
   return(
       <Activity title={intl.formatMessage({id: 'contact_us'})}>
@@ -32,7 +21,7 @@ class ContactUs extends Component {
         <Card
           style={{
           height: '100%',
-          alignItems: 'strech',
+          alignItems: 'stretch',
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'center'
@@ -61,11 +50,7 @@ class ContactUs extends Component {
 }
 
 ContactUs.propTypes={
-  history: PropTypes.object,
-  intl: intlShape.isRequired,
-  match: PropTypes.object.isRequired,
-  submit: PropTypes.func.isRequired,
-  muiTheme: PropTypes.object.isRequired,
+  intl: intlShape.isRequired
 }
 
 const mapStateToProps = (state) => {

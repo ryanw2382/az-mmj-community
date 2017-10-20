@@ -20,8 +20,7 @@ const config= {
     'facebook.com',
     'twitter.com',
     'github.com',
-    'password',
-    'phone'
+    'password'
   ],
   initial_state: {
     theme: 'dark',

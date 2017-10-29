@@ -57,7 +57,6 @@ class Flowers extends Component {
     });
   }
 
-
   render(){
     const { intl, flowers, muiTheme, history, isGranted } =this.props;
 
@@ -107,7 +106,6 @@ const mapStateToProps = (state) => {
     isGranted: grant=>isGranted(state, grant)
   };
 };
-
 
 export default connect(
   mapStateToProps,

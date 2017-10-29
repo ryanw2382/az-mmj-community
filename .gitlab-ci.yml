@@ -29,7 +29,7 @@ build:
 
 deploy:
   stage: deploy
-  environment: Production
+  environment: Development
   only:
     - master
   script:

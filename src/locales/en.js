@@ -158,7 +158,6 @@ const messages=defineMessages({
   website: 'Website',
   open_label: 'View Message',
 
-
 // Cannabis terms that have been added to the code should be updated under here by category
   cannabis: 'Cannabis',
 
@@ -186,7 +185,6 @@ const messages=defineMessages({
   create_edible: 'Add Edible',
 
 
-
 // Add all the extract terms under here
   extracts: 'Extracts',
   edit_extract: 'Edit Extract',
@@ -202,7 +200,6 @@ const messages=defineMessages({
   create_extract: 'Add Extract',
 
 
-
 // Add all Dispensary terms under here
   dispensaries: 'Dispensaries',
   dispensary_map: 'Dispensaries',
@@ -214,7 +211,6 @@ const messages=defineMessages({
   edit_dispensary: 'Edit Dispensary',
   delete_dispensary_title: 'Delete Dispensary',
   delete_dispensary_message: 'Are you sure you want to delete this Dispensary?',
-
 
 });
 

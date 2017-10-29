@@ -61,4 +61,3 @@ class EmailForm extends Component{
 }
 
 export default reduxForm({form: 'email_form'})(EmailForm)
-

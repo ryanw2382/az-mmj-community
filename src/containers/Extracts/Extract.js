@@ -6,7 +6,7 @@ import muiThemeable from 'material-ui/styles/muiThemeable';
 import { Activity } from '../../containers/Activity';
 import { ResponsiveMenu } from 'material-ui-responsive-menu';
 import { setDialogIsOpen } from '../../store/dialogs/actions';
-import FlowerForm from '../../components/Forms/FlowerForm';
+import ExtractForm from '../../components/Forms/ExtractForm';
 import { withRouter } from 'react-router-dom';
 import firebase from 'firebase';
 import FontIcon from 'material-ui/FontIcon';
@@ -18,11 +18,11 @@ import { change, submit } from 'redux-form';
 import isGranted  from '../../utils/auth';
 
 
-const path='/flowers/';
-const form_name='flower';
+const path='/extracts/';
+const form_name='extract';
 
 
-class Flower extends Component {
+class Extract extends Component {
 
   validate = (values) => {
     const { intl } = this.props;
@@ -46,7 +46,7 @@ class Flower extends Component {
   handleClose = () => {
     const { setDialogIsOpen }=this.props;
 
-    setDialogIsOpen('delete_flower', false);
+    setDialogIsOpen('delete_extract', false);
 
   }
 
@@ -100,14 +100,14 @@ class Flower extends Component {
         text: intl.formatMessage({id: 'save'}),
         icon: <FontIcon className="material-icons" color={muiTheme.palette.canvasColor}>save</FontIcon>,
         tooltip:intl.formatMessage({id: 'save'}),
-        onClick: ()=>{submit('flower')}
+        onClick: ()=>{submit('extract')}
       },
       {
         hidden: uid===undefined || !isGranted(`delete_${form_name}`),
         text: intl.formatMessage({id: 'delete'}),
         icon: <FontIcon className="material-icons" color={muiTheme.palette.canvasColor}>delete</FontIcon>,
         tooltip: intl.formatMessage({id: 'delete'}),
-        onClick: ()=>{setDialogIsOpen('delete_flower', true);}
+        onClick: ()=>{setDialogIsOpen('delete_extract', true);}
       }
     ]
 
@@ -124,35 +124,35 @@ class Flower extends Component {
         }
 
         onBackClick={()=>{history.goBack()}}
-        title={intl.formatMessage({id: match.params.uid?'edit_flower':'create_flower'})}>
+        title={intl.formatMessage({id: match.params.uid?'edit_extract':'create_extract'})}>
 
         <div style={{margin: 15, display: 'flex'}}>
 
           <FireForm
             firebaseApp={firebaseApp}
-            name={'flower'}
+            name={'extract'}
             path={`${path}`}
             validate={this.validate}
-            onSubmitSuccess={(values)=>{history.push('/flowers');}}
-            onDelete={(values)=>{history.push('/flowers');}}
+            onSubmitSuccess={(values)=>{history.push('/extracts');}}
+            onDelete={(values)=>{history.push('/extracts');}}
             uid={match.params.uid}>
-            <FlowerForm />
+            <ExtractForm />
           </FireForm>
         </div>
         <Dialog
-          title={intl.formatMessage({id: 'delete_flower_title'})}
+          title={intl.formatMessage({id: 'delete_extract_title'})}
           actions={actions}
           modal={false}
-          open={dialogs.delete_flower===true}
+          open={dialogs.delete_extract===true}
           onRequestClose={this.handleClose}>
-          {intl.formatMessage({id: 'delete_flower_message'})}
+          {intl.formatMessage({id: 'delete_extract_message'})}
         </Dialog>
       </Activity>
     );
   }
 }
 
-Flower.propTypes = {
+Extract.propTypes = {
   history: PropTypes.object,
   intl: intlShape.isRequired,
   setDialogIsOpen: PropTypes.func.isRequired,
@@ -176,4 +176,4 @@ const mapStateToProps = (state) => {
 
 export default connect(
   mapStateToProps, {setDialogIsOpen, change, submit}
-)(injectIntl(withRouter(withFirebase(muiThemeable()(Flower)))));
+)(injectIntl(withRouter(withFirebase(muiThemeable()(Extract)))));

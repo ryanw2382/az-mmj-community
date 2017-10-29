@@ -9,7 +9,7 @@ import {RMWIcon} from '../Icons'
 import {injectIntl} from 'react-intl'
 import muiThemeable from 'material-ui/styles/muiThemeable'
 
-const DrawerHeader = ({muiTheme, intl, auth, setAuthMenuOpen, fetchUser, dialogs, setDialogIsOpen}) => {
+const DrawerHeader = ({muiTheme, intl, auth, dialogs, setDialogIsOpen}) => {
   const styles = {
     header: {
       padding: 5
@@ -26,7 +26,7 @@ const DrawerHeader = ({muiTheme, intl, auth, setAuthMenuOpen, fetchUser, dialogs
     icon: {
       width: 48,
       height: 48,
-      top: 4
+      top: 10
     }
   }
 
@@ -64,7 +64,7 @@ const DrawerHeader = ({muiTheme, intl, auth, setAuthMenuOpen, fetchUser, dialogs
           disabled
           primaryText={intl.formatMessage({id: 'app_name'})}
           leftAvatar={
-            <RMWIcon color={muiTheme.palette.accent1Color} style={styles.icon} />
+            <RMWIcon color={muiTheme.palette.logo1Color} style={styles.icon} />
           }
         />
       </List>

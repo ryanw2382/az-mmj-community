@@ -41,7 +41,6 @@ class MyAccountForm extends Component {
 
         <div style={{margin: 15, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
           <AvatarImageField
-            disabled={false}
             uid={uid}
             change={this.props.change}
             initialized={initialized}

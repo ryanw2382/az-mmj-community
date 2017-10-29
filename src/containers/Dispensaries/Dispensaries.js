@@ -16,17 +16,17 @@ import isGranted  from '../../utils/auth';
 class Dispensaries extends Component {
 
   componentDidMount() {
-    const { watchList, firebaseApp}=this.props;
+    const { watchList, firebaseApp } = this.props;
 
-    let ref=firebaseApp.database().ref('dispensaries').limitToFirst(20);
+    let ref = firebaseApp.database().ref('dispensaries').limitToFirst(20);
 
     watchList(ref);
   }
 
   renderList(dispensaries) {
-    const {history} =this.props;
+    const { history } = this.props;
 
-    if(dispensaries===undefined){
+    if(dispensaries === undefined){
       return <div>No Dispensaries to display</div>
     }
 
@@ -47,7 +47,7 @@ class Dispensaries extends Component {
             }
             key={index}
             primaryText={dispensary.val.name}
-            secondaryText={dispensary.val.city}
+            secondaryText={`${dispensary.val.city}, ${dispensary.val.homeState}`}
             onClick={()=>{history.push(`/dispensaries/edit/${dispensary.key}`)}}
             id={index}
         />

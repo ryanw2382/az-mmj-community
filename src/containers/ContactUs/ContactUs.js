@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import { injectIntl, intlShape } from 'react-intl';
 import muiThemeable from 'material-ui/styles/muiThemeable';
 import { submit } from 'redux-form';
@@ -51,8 +50,7 @@ class ContactUs extends Component {
 }
 
 ContactUs.propTypes={
-  intl: intlShape.isRequired,
-  match: PropTypes.object.isRequired
+  intl: intlShape.isRequired
 }
 
 const mapStateToProps = (state) => {

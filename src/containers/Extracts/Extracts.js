@@ -1,68 +1,114 @@
-import React, {Component} from 'react';
-import FlatButton from 'material-ui/FlatButton';
-import { injectIntl, intlShape } from 'react-intl';
-import { GitHubIcon } from '../../components/Icons';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import muiThemeable from 'material-ui/styles/muiThemeable';
+import { injectIntl } from 'react-intl';
 import { Activity } from '../../containers/Activity';
-import  ReactMarkdown from 'react-markdown'
-import Scrollbar from '../../components/Scrollbar/Scrollbar'
-import README from './README.md';
-
-require('github-markdown-css');
+import {List, ListItem } from 'material-ui/List';
+import Divider from 'material-ui/Divider';
+import FontIcon from 'material-ui/FontIcon';
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import {withRouter} from 'react-router-dom';
+import Avatar from 'material-ui/Avatar';
+import { withFirebase } from 'firekit-provider'
+import isGranted  from '../../utils/auth';
+import Scrollbar from '../../components/Scrollbar/Scrollbar';
 
 class Extracts extends Component {
 
-  //Sorry for using setState here but I have to remove 'marked' from the dependencies
-  //because of a vulnerability issue
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: ''
-    };
+  componentDidMount() {
+    const { watchList, firebaseApp}=this.props;
+
+    let ref=firebaseApp.database().ref('extracts').limitToFirst(20);
+
+    watchList(ref);
   }
 
-  componentWillMount(){
+  renderList(extracts) {
+    const {history} =this.props;
 
-    fetch(README)
-    .then(response => response.text())
-    .then(text => {
-      this.setState({text:text})
+    if(extracts===undefined){
+      return <div>No Extracts to display</div>
+    }
+
+    return extracts.map((extract, index) => {
+
+      return <div key={index}>
+        <ListItem
+          leftAvatar={
+            <Avatar
+              src={extract.val.photoURL}
+              alt="extracts"
+              icon={
+                <FontIcon className="material-icons">
+                  colorize
+                </FontIcon>
+              }
+            />
+          }
+          key={index}
+          primaryText={extract.val.product}
+          secondaryText={extract.val.thc_cbd}
+          onClick={()=>{history.push(`/extracts/edit/${extract.key}`)}}
+          id={index}
+        />
+        <Divider inset={true}/>
+      </div>
     });
   }
 
-  render() {
-    const { intl }= this.props
+
+  render(){
+    const { intl, extracts, muiTheme, history, isGranted } =this.props;
 
     return (
-        <Activity
-            iconElementRight={
-              <FlatButton
-                  style={{marginTop: 4}}
-                  href="https://github.com/ryanw2382/az-mmj-community"
-                  target="_blank"
-                  rel="noopener"
-                  secondary={true}
-                  icon={<GitHubIcon/>}
-              />
+      <Activity
+        isLoading={extracts===undefined}
+        containerStyle={{overflow:'hidden'}}
+        title={intl.formatMessage({id: 'extracts'})}>
+
+        <Scrollbar>
+
+          <div style={{overflow: 'none', backgroundColor: muiTheme.palette.canvasColor}}>
+            <List  id='test' style={{height: '100%'}} ref={(field) => { this.list = field; }}>
+              {this.renderList(extracts)}
+            </List>
+          </div>
+
+          <div style={{position: 'fixed', right: 18, zIndex:3, bottom: 18, }}>
+            {
+              isGranted('create_extract') &&
+              <FloatingActionButton secondary={true} onClick={()=>{history.push(`/extracts/create`)}} style={{zIndex:3}}>
+                <FontIcon className="material-icons" >add</FontIcon>
+              </FloatingActionButton>
             }
-            title={intl.formatMessage({id: 'extracts'})}>
-
-          <Scrollbar>
-            <div style={{backgroundColor: 'white', padding: 5}}>
-              <ReactMarkdown
-                  className="markdown-body"
-                  source={this.state.text}
-              />
-            </div>
-          </Scrollbar>
-
-        </Activity>
+          </div>
+        </Scrollbar>
+      </Activity>
     );
 
   }
+
 }
 
 Extracts.propTypes = {
-  intl: intlShape.isRequired,
+  extracts: PropTypes.array,
+  history: PropTypes.object,
+  isGranted: PropTypes.func.isRequired,
 };
 
-export default injectIntl(Extracts);
+const mapStateToProps = (state) => {
+  const { auth, browser, lists } = state;
+
+  return {
+    extracts: lists.extracts,
+    auth,
+    browser,
+    isGranted: grant=>isGranted(state, grant)
+  };
+};
+
+
+export default connect(
+  mapStateToProps,
+)(injectIntl(muiThemeable()(withRouter(withFirebase(Extracts)))));

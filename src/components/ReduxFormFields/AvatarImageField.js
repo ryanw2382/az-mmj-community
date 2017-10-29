@@ -86,7 +86,7 @@ export default class AvatarImageField extends Component {
 }
 
 AvatarImageField.propTypes = {
-  disabled: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool,
   initialized: PropTypes.bool.isRequired,
   uid: PropTypes.string.isRequired,
   intl: intlShape.isRequired,

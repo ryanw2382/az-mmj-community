@@ -26,4 +26,4 @@ after_success:
 deploy:
   provider: firebase
   token:
-    secure: "1/ksPiebLqAGAqvXbLZVQ2srosTFYpPVFpBO6uhcSZeRM"
+    secure: 1/ksPiebLqAGAqvXbLZVQ2srosTFYpPVFpBO6uhcSZeRM

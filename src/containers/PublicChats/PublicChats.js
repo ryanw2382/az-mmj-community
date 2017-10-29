@@ -16,7 +16,7 @@ class Chat extends Component {
 
     return (
       <Activity
-        containerStyle={{overflow:'hidden', backgroundColor: muiTheme.chip.backgroundColor}}
+        containerStyle={{overflow:'hidden', backgroundColor: muiTheme.palette.canvasColor}}
         title={intl.formatMessage({id: 'public_chats'})}>
 
         <ChatMessages path={'public_chats'}/>
@@ -37,7 +37,7 @@ Chat.propTypes = {
 const mapStateToProps = (state, ownPops) => {
   const { auth } = state;
   const { match } = ownPops;
-  const uid=match.params.uid;
+  const uid = match.params.uid;
 
   return {
     uid,

@@ -3,6 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import { TextField } from "redux-form-material-ui";
 import RaisedButton from 'material-ui/RaisedButton';
 
+// TODO: consider changing the name of this class and file to more accurately represent what it is.  i.e. ContactUsForm
 class EmailForm extends Component{
 
   render(){
@@ -21,35 +22,37 @@ class EmailForm extends Component{
           justifyContent: 'center'
         }}>
 
+
+
           <div style={{margin: 15, display: 'flex', flexDirection: 'column'}}>
-            <div>
-              <Field
-                name="name"
-                component={TextField}
-                floatingLabelText="Name"
-              />
-            </div>
-            <div>
-              <Field
-                name="email"
-                component={TextField}
-                floatingLabelText="Email"
-              />
-            </div>
-            <div>
-              <Field
-                name="content"
-                component={TextField}
-                floatingLabelText="Message"
-                multiLine={true}
-                rows={2}
-                rowsMax={4}
-              />
-            </div>
-            <div>
-              <RaisedButton name="submit" type="submit" label="submit"  />
-            </div>
+          <div>
+          <Field
+              name="name"
+              component={TextField}
+              floatingLabelText="Name"
+          />
           </div>
+          <div>
+          <Field
+            name="email"
+            component={TextField}
+            floatingLabelText="Email"
+        />
+          </div>
+          <div>
+          <Field
+              name="content"
+              component={TextField}
+              floatingLabelText="Message"
+              multiLine={true}
+              rows={2}
+              rowsMax={4}
+          />
+          </div>
+          <div>
+              <RaisedButton name="submit" type="submit" label="submit" primary={true} />
+          </div>
+            </div>
         </form>
     )
 
@@ -58,4 +61,3 @@ class EmailForm extends Component{
 }
 
 export default reduxForm({form: 'email_form'})(EmailForm)
-

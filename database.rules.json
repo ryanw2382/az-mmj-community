@@ -21,14 +21,14 @@
     },
     "user_chats": {
       "$uid": {
-        ".read": "auth != null && $uid===auth.uid",
-        ".write": "auth != null && $uid===auth.uid"
+        ".read": "auth != null && $uid === auth.uid",
+        ".write": "auth != null && $uid === auth.uid"
       }
     },
     "user_chat_messages": {
       "$uid": {
-        ".read": "auth != null && $uid===auth.uid",
-        ".write": "auth != null && $uid===auth.uid"
+        ".read": "auth != null && $uid === auth.uid",
+        ".write": "auth != null && $uid === auth.uid"
       }
     },
     "users_count": {
@@ -39,7 +39,7 @@
     },
     "provider_count": {
       ".read": true,
-      ".write": false
+      ".write": "auth != null || root.child('admins/'+auth.uid).exists()"
     },
     "roles":{
       ".read": "auth != null && root.child('admins/'+auth.uid).exists()",
@@ -110,6 +110,24 @@
       ".read": "auth != null && root.child('admins/'+auth.uid).exists()",
       "$uid":{
         ".write": "auth != null && root.child('admins/'+auth.uid).exists()"
+      }
+    },
+    "flowers":{
+      ".read": "auth != null || root.child('admins/'+auth.uid).exists()",
+      "$uid":{
+        ".write": "auth != null || root.child('admins/'+auth.uid).exists()"
+      }
+    },
+    "edibles":{
+      ".read": "auth != null || root.child('admins/'+auth.uid).exists()",
+      "$uid":{
+        ".write": "auth != null || root.child('admins/'+auth.uid).exists()"
+      }
+    },
+    "extracts":{
+      ".read": "auth != null || root.child('admins/'+auth.uid).exists()",
+      "$uid":{
+        ".write": "auth != null || root.child('admins/'+auth.uid).exists()"
       }
     }
   }

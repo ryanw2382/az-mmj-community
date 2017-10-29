@@ -13,7 +13,8 @@ import muiThemeable from 'material-ui/styles/muiThemeable';
 import PropTypes from 'prop-types';
 
 
-
+// TODO: Consider changing the name of this class from Form to DispensaryForm.  Might cause problems later on.
+// TODO: Change the names of the fields to more accurately describe the contents. i.e. "name" to "dispensaryName" or something similar.
 class Form extends Component {
 
   handlePhotoUploadSuccess = (snapshot) =>{
@@ -104,19 +105,6 @@ class Form extends Component {
               />
             </div>
 
-            {/*<div>*/}
-              {/*<Field*/}
-                  {/*name="vat"*/}
-                  {/*disabled={!initialized}*/}
-                  {/*component={TextField}*/}
-                  {/*hintText={intl.formatMessage({id: 'vat_hint'})}*/}
-                  {/*floatingLabelText={intl.formatMessage({id: 'vat_label'})}*/}
-                  {/*ref="vat"*/}
-                  {/*withRef*/}
-              {/*/>*/}
-            {/*/!*</div>*!/*/}
-
-
             <div>
               <Field
                   name="city"
@@ -136,7 +124,7 @@ class Form extends Component {
                   component={TextField}
                   hintText={intl.formatMessage({id: 'state'})}
                   floatingLabelText={intl.formatMessage({id: 'state'})}
-                  ref="state"
+                  ref="homeState"
                   withRef
               />
             </div>

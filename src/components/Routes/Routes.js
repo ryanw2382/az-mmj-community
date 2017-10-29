@@ -71,6 +71,7 @@ const AsyncEdibles = MyLoadable({loader: () => import('../../containers/Edibles/
 const AsyncExtract = MyLoadable({loader: () => import('../../containers/Extracts/Extract')});
 const AsyncExtracts = MyLoadable({loader: () => import('../../containers/Extracts/Extracts')}, [AsyncExtract]);
 
+
 const AsyncContactUs = MyLoadable({loader: () => import('../../containers/ContactUs/ContactUs')});
 
 const AsyncUser = MyLoadable({loader: () => import('../../containers/Users/User')});

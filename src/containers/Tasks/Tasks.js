@@ -113,7 +113,7 @@ class Tasks extends Component {
     const { auth, intl, history, browser, setDialogIsOpen} =this.props;
 
     if(tasks===undefined){
-      return <div></div>
+      return <div>No Tasks!</div>
     }
 
     return tasks.map((row, i) => {

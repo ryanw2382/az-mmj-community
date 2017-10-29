@@ -12,7 +12,7 @@ import EmailForm  from '../../components/Forms/EmailForm'
 class ContactUs extends Component {
   render() {
     const {
-      intl,
+      intl
     }=this.props;
 
   return(
@@ -30,7 +30,7 @@ class ContactUs extends Component {
 
         <CardTitle title="We'd Love To Hear From You!!" subtitle="Yes you!!" />
         <CardText>
-        Hey everyone thank you for visting our site! We're always open to ideas and suggestions
+        Hey everyone thank you for visiting our site! We're always open to ideas and suggestions
         you can reach us in the form below. You guys and gals are awesome keep doing
         what you're doing!
         </CardText>

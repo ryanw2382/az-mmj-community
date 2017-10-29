@@ -38,10 +38,10 @@ class Flowers extends Component {
           leftAvatar={
             <Avatar
               src={flower.val.photoURL}
-              alt="business"
+              alt="flowers"
               icon={
                 <FontIcon className="material-icons">
-                  business
+                  local_florist
                 </FontIcon>
               }
             />

@@ -166,7 +166,7 @@ class PredefinedChatMessages extends Component {
 }
 
 PredefinedChatMessages.propTypes = {
-  list: PropTypes.array.isRequired,
+  list: PropTypes.array,
   history: PropTypes.object,
   intl: intlShape.isRequired,
   isGranted: PropTypes.func.isRequired,

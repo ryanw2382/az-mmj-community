@@ -38,17 +38,17 @@ class Extracts extends Component {
           leftAvatar={
             <Avatar
               src={extract.val.photoURL}
-              alt="business"
+              alt="extracts"
               icon={
                 <FontIcon className="material-icons">
-                  business
+                  colorize
                 </FontIcon>
               }
             />
           }
           key={index}
           primaryText={extract.val.product}
-          secondaryText={extract.val.city}
+          secondaryText={extract.val.thc_cbd}
           onClick={()=>{history.push(`/extracts/edit/${extract.key}`)}}
           id={index}
         />

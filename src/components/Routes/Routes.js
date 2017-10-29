@@ -62,11 +62,14 @@ const AsyncDispensary = MyLoadable({loader: () => import('../../containers/Dispe
 const AsyncDispensaries = MyLoadable({loader: () => import('../../containers/Dispensaries/Dispensaries')}, [AsyncDispensary]);
 const AsyncDispensaryMap = MyLoadable({loader: () => import('../../containers/Dispensaries/DispensaryMap')});
 
-const AsyncFlowers = MyLoadable({loader: () => import('../../containers/Flowers/Flowers')});
+const AsyncFlower = MyLoadable({loader: () => import('../../containers/Flowers/Flower')});
+const AsyncFlowers = MyLoadable({loader: () => import('../../containers/Flowers/Flowers')}, [AsyncFlower]);
 
-const AsyncEdibles = MyLoadable({loader: () => import('../../containers/Edibles/Edibles')});
+const AsyncEdible = MyLoadable({loader: () => import('../../containers/Edibles/Edible')});
+const AsyncEdibles = MyLoadable({loader: () => import('../../containers/Edibles/Edibles')}, [AsyncEdible]);
 
-const AsyncExtracts = MyLoadable({loader: () => import('../../containers/Extracts/Extracts')});
+const AsyncExtract = MyLoadable({loader: () => import('../../containers/Extracts/Extract')});
+const AsyncExtracts = MyLoadable({loader: () => import('../../containers/Extracts/Extracts')}, [AsyncExtract]);
 
 const AsyncContactUs = MyLoadable({loader: () => import('../../containers/ContactUs/ContactUs')});
 
@@ -112,10 +115,16 @@ const Routes = (props, context) => {
       <RestrictedRoute type='private' path="/users/edit/:uid/:editType" exact component={AsyncUser} />
 
       <RestrictedRoute type='private' path="/flowers" exact component={AsyncFlowers} />
+      <RestrictedRoute type='private' path="/flowers/edit/:uid" exact component={AsyncFlower} />
+      <RestrictedRoute type='private' path="/flowers/create" exact component={AsyncFlower} />
 
       <RestrictedRoute type='private' path="/edibles" exact component={AsyncEdibles} />
+      <RestrictedRoute type='private' path="/edibles/edit/:uid" exact component={AsyncEdible} />
+      <RestrictedRoute type='private' path="/edibles/create" exact component={AsyncEdible} />
 
       <RestrictedRoute type='private' path="/extracts" exact component={AsyncExtracts} />
+      <RestrictedRoute type='private' path="/extracts/edit/:uid" exact component={AsyncExtract} />
+      <RestrictedRoute type='private' path="/extracts/create" exact component={AsyncExtract} />
 
       <RestrictedRoute type='private' path="/contact-us" exact component={AsyncContactUs} />
 

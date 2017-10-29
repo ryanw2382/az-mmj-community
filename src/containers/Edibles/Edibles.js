@@ -38,17 +38,17 @@ class Edibles extends Component {
           leftAvatar={
             <Avatar
               src={edible.val.photoURL}
-              alt="business"
+              alt="edibles"
               icon={
                 <FontIcon className="material-icons">
-                  business
+                  cake
                 </FontIcon>
               }
             />
           }
           key={index}
           primaryText={edible.val.name}
-          secondaryText={edible.val.city}
+          secondaryText={edible.val.ingredients}
           onClick={()=>{history.push(`/edibles/edit/${edible.key}`)}}
           id={index}
         />

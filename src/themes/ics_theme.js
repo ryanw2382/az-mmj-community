@@ -22,6 +22,7 @@ export default {
     borderColor: fade(fullWhite, 0.3),
     disabledColor: fade(fullWhite, 0.3),
     pickerHeaderColor: fade(fullWhite, 0.12),
-    clockCircleColor: fade(fullWhite, 0.12)
+    clockCircleColor: fade(fullWhite, 0.12),
+    logo1Color: '#000000'
   }
 }

@@ -1,14 +1,9 @@
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form'
-//import {Card, CardTitle, CardText} from 'material-ui/Card';
-import { Form } from 'redux-form';
 import { TextField } from "redux-form-material-ui";
 import RaisedButton from 'material-ui/RaisedButton';
-import PropTypes from 'prop-types';
 
-
-
-
+// TODO: consider changing the name of this class and file to more accurately represent what it is.  i.e. ContactUsForm
 class EmailForm extends Component{
 
   render(){
@@ -55,7 +50,7 @@ class EmailForm extends Component{
           />
           </div>
           <div>
-              <RaisedButton name="submit" type="submit" label="submit"  />
+              <RaisedButton name="submit" type="submit" label="submit" primary={true} />
           </div>
             </div>
         </form>

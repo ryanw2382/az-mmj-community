@@ -147,7 +147,7 @@ class MyAccount extends Component {
     const { auth, firebaseApp, authStateChanged, authError }=this.props;
 
 
-    const simpleChange=(values.displayName && values.displayName.localeCompare(auth.displayNam)) ||
+    const simpleChange=(values.displayName && values.displayName.localeCompare(auth.displayName)) ||
       (values.photoURL && values.photoURL.localeCompare(auth.photoURL));
 
     let simpleValues={
